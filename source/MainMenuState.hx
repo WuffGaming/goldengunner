@@ -140,6 +140,7 @@ class MainMenuState extends MusicBeatState
 		var versionShit:FlxText = new FlxText(5, (FlxG.height * 0.9) + 44, 0, gameVer + daRealEngineVer + " Engine", 16);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("Comic Sans MS Bold", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.antialiasing = true;
 		add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();
