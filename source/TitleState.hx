@@ -318,7 +318,7 @@ class TitleState extends MusicBeatState
 		switch (curBeat)
 		{
 			case 2:
-				addMoreText('Grantare\nLancey\nCynda\nRubysArt_');
+				addMoreText('Sky!\nLancey');
 			case 3:
 				addMoreText('and the wonderful contributors!');
 			case 4:
@@ -339,11 +339,11 @@ class TitleState extends MusicBeatState
 			case 11:
 				deleteCoolText();
 			case 12:
-				addMoreText("Friday Night Funkin'");
+				addMoreText("GoldaGunner");
 			case 13:
-				addMoreText('VS. Dave and Bambi:');
+				addMoreText('Playable');
 			case 14:
-				addMoreText('Golden Apple');
+				addMoreText('Collection');
 			case 15:
 				deleteCoolText();
 			case 16:

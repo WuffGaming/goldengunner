@@ -39,8 +39,6 @@ class ExtraSongState extends MusicBeatState
 
     private var iconArray:Array<HealthIcon> = [];
 
-	public var cat:String = 'extra';
-
     var swagText:FlxText = new FlxText(0, 0, FlxG.width, 'my poop is brimming', 85);
 	var awesomeText:FlxText = new FlxText(0, 0, FlxG.width, 'Press space to view the OG mod!', 85);
 
@@ -64,9 +62,8 @@ class ExtraSongState extends MusicBeatState
     
     private var grpSongs:FlxTypedGroup<Alphabet>;
 
-	public override function new(cat:String)
+	public override function new()
 	{
-		this.cat = cat;
 		super();
 	}
 
@@ -87,76 +84,9 @@ class ExtraSongState extends MusicBeatState
 		bg.color = 0xFF4965FF;
 		add(bg);
 
-		if (cat == 'covers')
-			logos = [for (i in logoNames) new FlxSprite().loadGraphic(Paths.image('logos/$i'))];
-
-		switch(cat)
-		{
-			case 'minus':
-				addWeek(['Minus-Disruption'], 2, ['disrupt']);
-				addWeek(['Minus-Wireframe'], 1, ['decdave']);
-				addWeek(['MINUS-RECOVERED-PROJECT'], 6, ['recovered']);
-			case 'secret':
-				addWeek(['Cell'], 4, ['cell']);
-				addWeek(['Ticking'], 2, ['ouch']);
-				addWeek(['RECOVERED-PROJECT'], 6, ['recovered']);
-				addWeek(['Dave-X-Bambi-Shipping-Cute'], 3, ['dab']);
-			case 'ocs':
-				addWeek(['Tantalum', 'Strawberry', 'Keyboard'], 2, ['ringi', 'bambom', 'bendu']);
-				addWeek(['Sillier'], 2, ['blogblez']);
-			case 'covers':
-				addWeek(['Sunshine'], 2, ['doll']);
-				addWeek(['Left-Unchecked', 'Thunderstorm'], 1, ['dave-unchecked', 'dave-png']);
-				//addWeek(['Cycles'], 4, ['sart-producer']);
-				addWeek(['Collision'], 9, ['diamond']);
-			case 'iykyk':
-				addWeek(['OG', 'Sick-Tricks'], 1, ['prealpha', 'roblos']);
-				addWeek(['Galactic'], 2, ['super']);
-			case 'awesome':
-				addWeek(['Slices', 'Poopers'], 2, ['bandu', 'brob']);
-				addWeek(['Clit'], 9, ['diamond']);
-				addWeek(['Sweaty-Workout'], 2, ['butch']);
-				addWeek(['My-Home'], 8, ['hall-monitor']);
-				addWeek(['Cotton-Candy', 'Balls'], 2, ['badai', 'bambom']);
-				addWeek(['2-Spheres'], 0, ['leak-gf']);
-				addWeek(['Jerry-the-Mouse', 'Threesome'], 3, ['underscore', 'face']);
-				addWeek(['Sit-On-My-Face'], 6, ['gunk']);
-				addWeek(['Amongfairness'], 2, ['sus']);
-				addWeek(['Reflection', 'Bug-Eyed-Bitch'], 1, ['3d-bf', 'decdave']);
-				addWeek(['Ny-Tristan'], 0, ['3d-tristan']);
-				addWeek(['Gobbledegook', 'Generic'], 2, ['leak-wtf', 'icons']);
-				addWeek(['Chilli-Powder'], 6, ['chili_icons']);
-				addWeek(['Impregnate'], 5, ['scrub_icons']);
-				addWeek(['Fuckity', 'Encrypted'], 2, ['leak-ringonal', 'leak-encrypted']);
-				addWeek(['Pink-Bandu'], 0, ['lullabandu']);
-				addWeek(['Trampoline-Accident', 'The-Big-Dingle'], 2, ['froing', 'dingle']);
-				//addWeek(['The-100th-Ruby-Song'], 1, ['bweasal']);
-				addWeek(['Locked-Lips'], 2, ['junkers']);
-				//addWeek(['Wednesday'], 4, ['penis']);
-				addWeek(['FL-Keys'], 5, ['charlie']);
-				addWeek(['Bandu-Radical'], 2, ['radical-nambe']);
-				addWeek(['Pee-Shooter'], 5, ['peashooter']);
-				addWeek(['Third-Chance'], 2, ['sillycon-min-removebg-preview']);
-				addWeek(['Second-Coming-Of-The-'], 0, ['clown']);
-				addWeek(['I-Am-Canonically-Trans'], 1, ['peensum']);
-				addWeek(['Among-Us-Penis-Sex'], 0, ['among']);
-				addWeek(['The-Willy-Walter-Rap'], 0, ['willy-walter']);
-				//addWeek(['T4-Player'], 0, ['t5-furry']);
-			case 'joke':
-				addWeek(['Wheels'], 1, ['wheels']);
-				addWeek(['Poopers'], 0, ['awesome-son']);
-				addWeek(['The-Boopadoop-Song'], 4, ['cynda']);
-			default:
-				addWeek(['Sugar-Rush', 'Gift-Card', 'The-Big-Dingle', 'Dale', 'Origin'], 2, ['bandu', 'bandu', 'dingle', 'dale', 'bandu-origin']);
-				addWeek(['Apprentice'], 0, ['tristan']);
-				addWeek(['Resumed', 'Ready-Loud', 'Bookworm'], 2, ['dambu', 'flumpt', 'bookworm']);
-				addWeek(['Cuberoot', 'Alternate', 'Unhinged'], 1, ['disability', 'david', 'unhinged']);
-				addWeek(['Theft'], 5, ['garrett']);
-				addWeek(['Too-Shiny'], 9, ['diamond']);
-				//addWeek(['Gotta-Sleep'], 7, ['gotta']);
-				//addWeek(['Production', 'Genocidal'], 4, ['sart-producer', 'sart-producer']);
-				//addWeek(['Cynda'], Std.parseInt('Cynda'), ['cynda']); trolled
-		}
+		addWeek(['Apprentice'], 0, ['tristan']);
+		addWeek(['Cuberoot'], 1, ['disability']);
+		addWeek(['RECOVERED-PROJECT'], 6, ['recovered']);
 
         grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -165,14 +95,6 @@ class ExtraSongState extends MusicBeatState
 		swagText.screenCenter(X);
 		swagText.y += 50;
 		add(swagText);
-
-		awesomeText.setFormat("Comic Sans MS Bold", 48, FlxColor.BLACK, CENTER);
-		awesomeText.screenCenter(X);
-		awesomeText.y += 50;
-		if(cat == 'covers')
-		{
-			add(awesomeText);
-		}
 
 		for (i in 0...songs.length)
 		{
@@ -226,14 +148,7 @@ class ExtraSongState extends MusicBeatState
 
 	public function checkSongUnlock(song:String)
 	{
-		if ((song.toLowerCase() == 'dave-x-bambi-shipping-cute' && !SaveFileState.saveFile.data.shipUnlocked) || (song.toLowerCase() == 'recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject) || (song.toLowerCase() == 'minus-recovered-project' && !SaveFileState.saveFile.data.foundRecoveredProject) || (song.toLowerCase() == 'corrupted-file' && !SaveFileState.saveFile.data.foundCorrupt) || (song.toLowerCase() == 'irreversible-action' && !SaveFileState.saveFile.data.foundAction) || (song.toLowerCase() == 'ripple' && !SaveFileState.saveFile.data.foundRipple) || (song.toLowerCase() == 'ticking' && !SaveFileState.saveFile.data.foundTicking) || (song.toLowerCase() == 'penis' && !SaveFileState.saveFile.data.elfDiscovered) || (song.toLowerCase() == 'cell' && !SaveFileState.saveFile.data.foundCell))
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
+		return true;
 	}
 
     public function addSong(songName:String, weekNum:Int, songCharacter:String, blackoutIcon:Bool = false)
@@ -266,15 +181,7 @@ class ExtraSongState extends MusicBeatState
             changeSelection(1);
 
         if (controls.BACK)
-            FlxG.switchState(()->new PlayMenuState());
-
-		if(cat == 'covers')
-		{
-			if(FlxG.keys.justPressed.SPACE)
-			{
-				fancyOpenURL(sourceModLinks[curSelected]);
-			}
-		}
+            FlxG.switchState(()->new MainMenuState());
 
         if (controls.ACCEPT || FlxG.keys.justPressed.ENTER)
 		{
@@ -284,11 +191,6 @@ class ExtraSongState extends MusicBeatState
 					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
                 default:   
 					var pisswad = songs[curSelected].songName.toLowerCase();
-
-					if(cat == 'awesome')
-					{
-						pisswad = 'slices';
-					}
 
                     var poop:String = Highscore.formatSong(pisswad, 1);
 
@@ -343,39 +245,6 @@ class ExtraSongState extends MusicBeatState
         }
 
 		#if PRELOAD_ALL
-		if(cat == 'awesome')
-		{
-			if(songs[curSelected].songName.toLowerCase() == 'slices')
-			{
-				FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
-				var hmm;
-				try
-				{                    
-					var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), 1);
-		
-					trace(poop);
-					hmm = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
-					if (hmm != null)
-					{
-						Conductor.changeBPM(hmm.bpm);
-					}
-				}
-				catch (ex)
-				{
-				}
-			}
-			else if(songs[curSelected].songName.toLowerCase() == 'fl-keys')
-			{
-				FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
-			}
-			else
-			{
-				FlxG.sound.playMusic(Paths.tta(Std.string(FlxG.random.int(0, 30))), 0);
-			}
-		}
-		else
-		{
-			FlxG.sound.playMusic(Paths.inst(songs[curSelected].songName), 0);
 			var hmm;
 			try
 			{                    
@@ -391,7 +260,6 @@ class ExtraSongState extends MusicBeatState
 			catch (ex)
 			{
 			}
-		}
 		Conductor.songPosition = 0;
 		curBeat = 0;
 		#end
@@ -435,10 +303,8 @@ class ExtraSongState extends MusicBeatState
 		{
 			remove(difficultyImg);
 		}
-		var suffey = '';
-		if(cat == 'awesome') suffey = '-demon';
 		difficultyImg = new FlxSprite();
-		difficultyImg.loadGraphic(Paths.image('diff/' + CoolUtil.songDiffRating(songs[curSelected].songName.toLowerCase()) + suffey));
+		difficultyImg.loadGraphic(Paths.image('diff/' + CoolUtil.songDiffRating(songs[curSelected].songName.toLowerCase())));
 		difficultyImg.scale.set(0.5, 0.5);
 		difficultyImg.setPosition(FlxG.width - ((546 / 1.4) + 5), FlxG.height - ((497 / 1.4) + 5));
 		difficultyImg.scrollFactor.set(0, 0);

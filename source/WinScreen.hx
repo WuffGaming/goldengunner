@@ -138,10 +138,7 @@ class WinScreen extends MusicBeatState
             accepted = true;
             FlxFlicker.flicker(flixelBeLike, 1.1, 0.15);
             FlxG.sound.play(Paths.sound('confirmMenu'));
-            if (['disruption', 'applecore', 'disability', 'wireframe', 'algebra', 'deformation', 'ferocious'].contains(PlayState.SONG.song.toLowerCase()))
-                FlxG.switchState(()->new PlayMenuState());
-            else
-                FlxG.switchState(()->new ExtraSongState(ExtraCategorySelect.cats[ExtraCategorySelect.curCat]));
+            FlxG.switchState(()->new ExtraSongState());
         }
 	}
 }

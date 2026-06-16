@@ -4738,16 +4738,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function ughWhyDoesThisHaveToFuckingExist() 
-	{
-		FlxG.switchState(()->new PlayMenuState());
-	}
-
-	public static function ohMyFuckingFuckingFuckingGod(cat:String)
-	{
-		FlxG.switchState(()->new ExtraSongState(cat));
-	}
-
 	var endingSong:Bool = false;
 
 	function nextSong()
