@@ -24,7 +24,7 @@ class CreditPopup extends FlxSpriteGroup
         funnyText.setFormat('Comic Sans MS Bold', 32, FlxColor.BLACK, LEFT);
         switch(songy.toLowerCase())
         {
-            case 'disruption' | 'minus-disruption' | 'applecore' | 'disability' | 'algebra' | 'future' | 'nice' | 'resumed' | 'sugar-rush' | 'recovered-project' | 'minus-recovered-project' | 'dave-x-bambi-shipping-cute' | 'bookworm' | 'the-big-dingle':
+            case 'disruption' | 'minus-disruption' | 'applecore' | 'disability' | 'algebra' | 'future' | 'nice' | 'resumed' | 'sugar-rush' | 'recovered-project' | 'recovered-project-(ingame-version)' | 'minus-recovered-project' | 'dave-x-bambi-shipping-cute' | 'bookworm' | 'the-big-dingle':
                 funnyText.text = 'Song by Grantare';
             case 'ferocious':
                 funnyText.text = 'Song by Grantare\nOriginal Mod by Jumpman25';
@@ -38,7 +38,7 @@ class CreditPopup extends FlxSpriteGroup
                 bitchyBalls.scale.set(2.25, 1);
             case 'jambino' | 'fresh-and-toasted':
                 funnyText.text = 'Song by R34D34L';
-            case 'cuberoot' | 'og' | 'production' | 'cheating-not-cute' | 'dale' | 'ticking' | 'irreversible-action' | 'apprentice' | 'apprentice-(beta-mix)':
+            case 'cuberoot' | 'cuberoot-(alpha-mix)' | 'og' | 'production' | 'cheating-not-cute' | 'dale' | 'ticking' | 'irreversible-action' | 'apprentice' | 'apprentice-(beta-mix)':
                 funnyText.text = 'Song by Aadsta';
             case 'nft' | 'upcoming-cop' | 'enforcers' | 'cell' | 'alternate':
                 funnyText.text = 'Song by Wildy';

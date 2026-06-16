@@ -886,7 +886,7 @@ class PlayState extends MusicBeatState
 			boyfriend.y += 75;
 		}*/
 
-		if (SONG.song.toLowerCase() == 'dave-x-bambi-shipping-cute' || SONG.song.toLowerCase() == 'cuberoot') gf.visible = false;
+		if (SONG.song.toLowerCase() == 'dave-x-bambi-shipping-cute' || SONG.song.toLowerCase() == 'cuberoot' || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)' ) gf.visible = false;
 
 		if(SONG.song.toLowerCase() == "unfairness")
 		{
@@ -1104,7 +1104,7 @@ class PlayState extends MusicBeatState
 				preload('characters/ohshit');
 				preload('characters/garrett_algebra');
 				preload('characters/og_dave_angey');
-			case 'recovered-project':
+			case 'recovered-project' | 'recovered-project-(ingame-version)':
 				preload('characters/recovered_project_2');
 				preload('characters/recovered_project_3');
 			case 'deformation':
@@ -1590,7 +1590,7 @@ class PlayState extends MusicBeatState
 				bg.screenCenter(); // no its not
 				sprites.add(bg);
 				add(bg);
-			case 'recovered-project':
+			case 'recovered-project' | 'recovered-project-(ingame-version)':
 				defaultCamZoom = 0.85;
 				curStage = 'recover';
 				var yea = new FlxSprite(-641, -222).loadGraphic(Paths.image('RECOVER_assets/q'));
@@ -1971,7 +1971,7 @@ class PlayState extends MusicBeatState
 				pissStainDad.scale.set(0.75, 0.75);
 				pissStainDad.updateHitbox();
 				add(pissStainDad);
-			case 'disruption' | 'minus-disruption' | 'disability' | 'origin' | 'tantalum' | 'strawberry' | 'keyboard' | 'ugh' | 'jeez' | 'ripple' | 'galactic' | 'cuberoot' | 'jambino' | 'amongfairness' | 'cooking-lesson' | 'sillier':
+			case 'disruption' | 'minus-disruption' | 'disability' | 'origin' | 'tantalum' | 'strawberry' | 'keyboard' | 'ugh' | 'jeez' | 'ripple' | 'galactic' | 'cuberoot' | 'cuberoot-(alpha-mix)' | 'jambino' | 'amongfairness' | 'cooking-lesson' | 'sillier':
 				defaultCamZoom = 0.9;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dave/redsky'));
 				bg.active = true;
@@ -2018,7 +2018,7 @@ class PlayState extends MusicBeatState
 					case 'disability':
 						bg.loadGraphic(Paths.image('dave/disabled'));
 						curStage = 'disabled';
-					case 'cuberoot':
+					case 'cuberoot' | 'cuberoot-(alpha-mix)':
 						bg.loadGraphic(Paths.image('dave/cuberoot'));
 						curStage = 'disabled';
 						danceOverride = true;
@@ -2097,7 +2097,7 @@ class PlayState extends MusicBeatState
 					add(bushesFront);
 				}
 
-				if (SONG.song.toLowerCase() == 'disruption' || SONG.song.toLowerCase() == 'ripple' || SONG.song.toLowerCase() == 'minus-disruption' || SONG.song.toLowerCase() == 'ripple' || SONG.song.toLowerCase() == 'cuberoot')
+				if (SONG.song.toLowerCase() == 'disruption' || SONG.song.toLowerCase() == 'ripple' || SONG.song.toLowerCase() == 'minus-disruption' || SONG.song.toLowerCase() == 'ripple' || SONG.song.toLowerCase() == 'cuberoot' || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)')
 				{
 					poop = new StupidDumbSprite(-100, -100, 'lol');
 					poop.makeGraphic(Std.int(1280 * 1.4), Std.int(720 * 1.4), FlxColor.BLACK);
@@ -2105,7 +2105,7 @@ class PlayState extends MusicBeatState
 					sprites.add(poop);
 					add(poop);
 
-					if(SONG.song.toLowerCase() == 'cuberoot') { poop.color = FlxColor.WHITE; trace('what');
+					if(SONG.song.toLowerCase() == 'cuberoot' || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)') { poop.color = FlxColor.WHITE; trace('what');
 					}
 				}
 				// below code assumes shaders are always enabled which is bad
@@ -3650,7 +3650,7 @@ class PlayState extends MusicBeatState
 			});
 		}
 
-		if(SONG.song.toLowerCase() == 'cuberoot' && playerStrums.members[0] != null)
+		if(SONG.song.toLowerCase() == 'cuberoot' && playerStrums.members[0] != null || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)' && playerStrums.members[0] != null )
 		{
 			var multiPliers = 1;
 			if(FlxG.save.data.downscroll)
@@ -4275,7 +4275,7 @@ class PlayState extends MusicBeatState
 								{
 									dad.playAnim('sing' + fuckingDumbassBullshitFuckYou + altAnim, true);
 									dadmirror.playAnim('sing' + fuckingDumbassBullshitFuckYou + altAnim, true);
-									if (SONG.song.toLowerCase() == 'recovered-project' && sonicAllAmericanHotdogCombo && eyesoreson) {
+									if (SONG.song.toLowerCase() == 'recovered-project' && sonicAllAmericanHotdogCombo && eyesoreson || SONG.song.toLowerCase() == 'recovered-project-(ingame-version)' && sonicAllAmericanHotdogCombo && eyesoreson) {
 										helloIAmNotMarcellosIAmMrBambiGiveMeYourFOOOOOOODDDDdddddd.forEach(function(spr:FlxSprite){
 											spr.visible = spr.ID == daNote.noteData;
 										});
@@ -4368,7 +4368,7 @@ class PlayState extends MusicBeatState
 							else
 								daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (0.45 * FlxMath.roundDecimal(swagSpeed * daNote.LocalScrollSpeed, 2))) + strumYOffset;
 						}
-					case 'cuberoot':
+					case 'cuberoot' | 'cuberoot-(alpha-mix)':
 						if (FlxG.save.data.downscroll)
 							daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (-0.45 * FlxMath.roundDecimal(swagSpeed * daNote.LocalScrollSpeed, 2)))  + uhhEveryCool[daNote.noteData];
 						else
@@ -5666,7 +5666,7 @@ class PlayState extends MusicBeatState
 			}
 			boyfriend.playAnim('sing' + fuckingDumbassBullshitFuckYou, true);
 			*/
-			if(shakingChars.contains(boyfriend.curCharacter) && !(SONG.song.toLowerCase() == 'cuberoot' && boyfriend.curCharacter == 'bambi-piss-3d'))
+			if(shakingChars.contains(boyfriend.curCharacter) && !(SONG.song.toLowerCase() == 'cuberoot' && boyfriend.curCharacter == 'bambi-piss-3d' || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)' && boyfriend.curCharacter == 'bambi-piss-3d'))
 			{
 				FlxG.camera.shake(0.0075, 0.1);
 				camHUD.shake(0.0045, 0.1);
@@ -6279,7 +6279,7 @@ class PlayState extends MusicBeatState
 		{
 			switch (SONG.song.toLowerCase())
 			{
-				case 'recovered-project':
+				case 'recovered-project' | 'recovered-project-(ingame-version)':
 					if (dad.holdTimer <= 0 && curBeat % dadDanceSnap == 0) {
 						dad.dance(idleAlt);
 						helloIAmNotMarcellosIAmMrBambiGiveMeYourFOOOOOOODDDDdddddd.forEach(function(spr:FlxSprite){
@@ -6699,7 +6699,7 @@ class PlayState extends MusicBeatState
 							});
 						}});
 				}
-			case 'recovered-project':
+			case 'recovered-project' | 'recovered-project-(ingame-version)':
 				switch (curBeat) {
 					case 256:
 						swapDad('RECOVERED_PROJECT_2');
