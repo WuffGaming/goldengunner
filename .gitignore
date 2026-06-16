@@ -1,5 +1,11 @@
-export/
-.vscode/
-APIStuff.hx
-art/flashFiles/
-art/Source Files/
+export/*
+.vs/*
+.git
+.DS_Store
+.icloud
+.haxelib/*
+example_mods/personal/
+.history
+.ionide
+vscode-project.hxml
+!.vscode/settings.json

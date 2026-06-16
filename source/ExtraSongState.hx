@@ -78,6 +78,9 @@ class ExtraSongState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
 
+		swagText.antialiasing = true;
+		awesomeText.antialiasing = true;
+
         #if desktop DiscordClient.changePresence("In the Extra Songs Menu", null); #end
 
         bg.loadGraphic(MainMenuState.randomizeBG());
@@ -263,7 +266,7 @@ class ExtraSongState extends MusicBeatState
             changeSelection(1);
 
         if (controls.BACK)
-            FlxG.switchState(new PlayMenuState());
+            FlxG.switchState(()->new PlayMenuState());
 
 		if(cat == 'covers')
 		{

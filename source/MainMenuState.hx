@@ -13,7 +13,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
-import io.newgrounds.NG;
+
 import lime.app.Application;
 #if desktop
 import Discord.DiscordClient;
@@ -106,7 +106,7 @@ class MainMenuState extends MusicBeatState
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 
-		FlxG.camera.follow(camFollow, null, 0.06);
+		FlxG.camera.follow(camFollow, null, 0.6);
 		
 		camFollow.setPosition(640, 150.5);
 		for (i in 0...optionShit.length)
@@ -186,13 +186,13 @@ class MainMenuState extends MusicBeatState
 
 			if ((controls.BACK || FlxG.keys.justPressed.BACKSPACE) && !selectedSomethin)
 			{
-				FlxG.switchState(new SaveFileState());
+				FlxG.switchState(()->new SaveFileState());
 			}
 
 			if(FlxG.keys.justPressed.SEVEN)
 			{
 				#if debug
-				FlxG.switchState(new FerociousEnding(100));
+				FlxG.switchState(()->new FerociousEnding(100));
 				#end
 			}
 
@@ -237,9 +237,9 @@ class MainMenuState extends MusicBeatState
 							switch (daChoice)
 							{
 								case 'options':
-									FlxG.switchState(new OptionsMenu());
+									FlxG.switchState(()->new OptionsMenu());
 								case 'play':
-									FlxG.switchState(new PlayMenuState());
+									FlxG.switchState(()->new PlayMenuState());
 								case 'dave x bambi shipping cute':
 									var poop:String = Highscore.formatSong('dave-x-bambi-shipping-cute', 1);
 

@@ -3,7 +3,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.text.FlxText;
-import flixel.system.FlxSoundGroup;
+import flixel.sound.FlxSoundGroup;
 import flixel.math.FlxPoint;
 import openfl.geom.Point;
 import flixel.*;

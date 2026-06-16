@@ -18,7 +18,7 @@ class GetBackState extends MusicBeatState
 
     override function update(t:Float) {
         if(FlxG.keys.justPressed.ANY)
-            FlxG.switchState(new PlayState());
+            FlxG.switchState(()->new PlayState());
         super.update(t);
     }
 }

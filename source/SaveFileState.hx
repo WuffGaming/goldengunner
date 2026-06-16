@@ -145,7 +145,7 @@ class SaveFileState extends MusicBeatState
             if(controls.BACK)
             {
                 selectedSomething = true;
-                FlxG.switchState(new TitleState());
+                FlxG.switchState(()->new TitleState());
             }
 
 			if (controls.ACCEPT)
@@ -186,7 +186,7 @@ class SaveFileState extends MusicBeatState
 									saveFile.flush();
 									PlayerSettings.init();
 									Highscore.load();
-									FlxG.switchState(new MainMenuState());		
+									FlxG.switchState(()->new MainMenuState());		
 								});
 							}
 						}

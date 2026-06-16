@@ -13,14 +13,14 @@ import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.system.ui.FlxSoundTray;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
+
 import lime.app.Application;
 import openfl.Assets;
 #if desktop
@@ -86,7 +86,7 @@ class PreloadState extends MusicBeatState
         if(FlxG.save.data.preloadAtStartup == null)
         {
             transitioning = true;
-            FlxG.switchState(new DoYouWannaUsePreloadingOrNotState());
+            FlxG.switchState(()->new DoYouWannaUsePreloadingOrNotState());
         }
 
         var pissBaby:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.WHITE);
@@ -131,7 +131,7 @@ class PreloadState extends MusicBeatState
             transitioning = true;
             trace('FINISHED PRELOADING! ! !');
             new FlxTimer().start(1.5, function(tmr:FlxTimer){
-                FlxG.switchState(new IntroState());
+                FlxG.switchState(()->new IntroState());
             }); 
         }
 

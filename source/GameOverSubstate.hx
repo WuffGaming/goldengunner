@@ -330,7 +330,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				LoadingState.loadAndSwitchState(new PlayState());
 			}
 			else if (PlayState.SONG.song.toLowerCase() == 'penis')
-				FlxG.switchState(new GetBackState());
+				FlxG.switchState(()->new GetBackState());
 			else
 				PlayState.practicing = false;
 			
@@ -338,7 +338,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			
 				PlayState.deathCounter = 0;
 
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(()->new MainMenuState());
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath' && bf.animation.curAnim.curFrame == followy)

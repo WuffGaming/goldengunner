@@ -13,14 +13,13 @@ import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.system.ui.FlxSoundTray;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
 import lime.app.Application;
 import openfl.Assets;
 #if desktop
@@ -57,7 +56,7 @@ class DoYouWannaUsePreloadingOrNotState extends MusicBeatState
             FlxG.save.data.preloadAtStartup = true;
 			FlxG.save.data.preloadAtAll = true;
 			FlxG.save.flush();
-            FlxG.switchState(new StartupState());
+            FlxG.switchState(()->new StartupState());
         }
         else if(FlxG.keys.justPressed.N && !transitioning)
         {
@@ -65,7 +64,7 @@ class DoYouWannaUsePreloadingOrNotState extends MusicBeatState
 			FlxG.save.data.preloadAtStartup = false;
 			FlxG.save.data.preloadAtAll = false;
 			FlxG.save.flush();
-            FlxG.switchState(new StartupState());
+            FlxG.switchState(()->new StartupState());
         }
 
 		super.update(elapsed);

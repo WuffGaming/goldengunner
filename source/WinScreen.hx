@@ -16,14 +16,14 @@ import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.system.ui.FlxSoundTray;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import io.newgrounds.NG;
+
 import lime.app.Application;
 import openfl.Assets;
 #if desktop
@@ -139,9 +139,9 @@ class WinScreen extends MusicBeatState
             FlxFlicker.flicker(flixelBeLike, 1.1, 0.15);
             FlxG.sound.play(Paths.sound('confirmMenu'));
             if (['disruption', 'applecore', 'disability', 'wireframe', 'algebra', 'deformation', 'ferocious'].contains(PlayState.SONG.song.toLowerCase()))
-                FlxG.switchState(new PlayMenuState());
+                FlxG.switchState(()->new PlayMenuState());
             else
-                FlxG.switchState(new ExtraSongState(ExtraCategorySelect.cats[ExtraCategorySelect.curCat]));
+                FlxG.switchState(()->new ExtraSongState(ExtraCategorySelect.cats[ExtraCategorySelect.curCat]));
         }
 	}
 }

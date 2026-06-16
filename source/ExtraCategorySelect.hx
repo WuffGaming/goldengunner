@@ -1,6 +1,5 @@
 package;
 
-import io.newgrounds.components.GatewayComponent;
 import flixel.tweens.misc.ColorTween;
 import flixel.math.FlxRandom;
 import openfl.net.FileFilter;
@@ -28,7 +27,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -116,7 +115,7 @@ class ExtraCategorySelect extends MusicBeatState
             changeSelection(1);
 
         if ((controls.BACK || FlxG.keys.justPressed.BACKSPACE))
-            FlxG.switchState(new PlayMenuState());
+            FlxG.switchState(()->new PlayMenuState());
 
         if (controls.ACCEPT || FlxG.keys.justPressed.ENTER)
 		{

@@ -94,7 +94,7 @@ class OptionsMenu extends MusicBeatState
 		super.update(elapsed);
 
 			if (controls.BACK)
-				FlxG.switchState(new MainMenuState());
+				FlxG.switchState(()->new MainMenuState());
 			if (controls.UP_P)
 				changeSelection(-1);
 			if (controls.DOWN_P)
@@ -119,7 +119,7 @@ class OptionsMenu extends MusicBeatState
 				switch(curSelected)
 				{
 					case 0:
-						FlxG.switchState(new KeyBindState());
+						FlxG.switchState(()->new KeyBindState());
 						
 					case 1:
 						FlxG.save.data.newInput = !FlxG.save.data.newInput;

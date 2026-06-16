@@ -1,0 +1,109 @@
+{
+  "dependencies": [
+{
+      "name": "faxe",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/ashea-code/faxe"
+    },
+    {
+      "name": "lime",
+      "type": "git",
+      "dir": null,
+      "ref": "8837f7dba4ac09a5a0d25ab3ef69e4de0d120d10",
+      "url": "https://github.com/FunkinCrew/lime"
+    },
+    {
+      "name": "openfl",
+      "type": "git",
+      "dir": null,
+      "ref": "819a3dcc86b022f014ee6026e80845e1eee9d6e0",
+      "url": "https://github.com/FunkinCrew/openfl"
+    },
+    {
+      "name": "flixel",
+      "type": "git",
+      "dir": null,
+      "ref": "4727639305a4432791786a2356d815fd12f0680e",
+      "url": "https://github.com/FunkinCrew/flixel"
+    },
+    {
+      "name": "flixel-addons",
+      "type": "git",
+      "dir": null,
+      "ref": "dev",
+      "url": "https://github.com/FunkinCrew/flixel-addons"
+    },
+    {
+      "name": "hxcpp",
+      "type": "git",
+      "dir": null,
+      "ref": "1a468335a0016aa87439c1878b5b845f88a4bae0",
+      "url": "https://github.com/FunkinCrew/hxcpp"
+    },
+    {
+      "name": "hxdiscord_rpc",
+      "type": "haxelib",
+      "version": "1.3.0"
+    },
+    {
+      "name": "hscript",
+      "type": "haxelib",
+      "version": "2.7.0"
+    },
+    {
+      "name": "flixel-ui",
+      "type": "haxelib",
+      "version": "2.6.4"
+    },
+    {
+      "name": "actuate",
+      "type": "haxelib",
+      "version": "1.9.0"
+    },
+    {
+      "name": "hxvlc",
+      "type": "haxelib",
+      "version": "2.2.6"
+    },
+    {
+      "name": "jsonpatch",
+      "type": "haxelib",
+      "version": "1.1.0"
+    },
+    {
+      "name": "jsonpath",
+      "type": "haxelib",
+      "version": "1.1.0"
+    },
+    {
+      "name": "polymod",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/FunkinCrew/polymod"
+    },
+    {
+      "name": "thx.core",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/fponticelli/thx.core"
+    },
+    {
+      "name": "thx.semver",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/fponticelli/thx.semver"
+    },
+    {
+      "name": "extension-webm",
+      "type": "git",
+      "dir": null,
+      "ref": "master",
+      "url": "https://github.com/KadeDev/extension-webm"
+    }
+  ]
+}

@@ -22,6 +22,6 @@ class ElfState extends MusicBeatState
 
     override function update(t:Float) {
         super.update(t);
-        if (FlxG.keys.justPressed.ANY) FlxG.switchState(new MainMenuState());
+        if (FlxG.keys.justPressed.ANY) FlxG.switchState(()->new MainMenuState());
     }
 }

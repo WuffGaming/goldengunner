@@ -20,6 +20,7 @@ class CreditPopup extends FlxSpriteGroup
         add(bitchyBalls);
 
         var funnyText:FlxText = new FlxText(1, 0, 650, 'Placeholder', 16);
+        funnyText.antialiasing = true;
         funnyText.setFormat('Comic Sans MS Bold', 32, FlxColor.BLACK, LEFT);
         switch(songy.toLowerCase())
         {

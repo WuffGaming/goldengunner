@@ -7,7 +7,7 @@ import flixel.FlxSubState;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.keyboard.FlxKey;
-import flixel.system.FlxSound;
+import flixel.sound.FlxSound;
 import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
@@ -191,11 +191,11 @@ class PauseSubState extends MusicBeatSubstate
 					FlxG.resetState();
 				case "Exit to menu":
 					if (PlayState.SONG.song.toLowerCase() == 'penis')
-						FlxG.switchState(new GetBackState());
+						FlxG.switchState(()->new GetBackState());
 					else {
 						PlayState.characteroverride = 'none';
 						PlayState.formoverride = 'none';
-						FlxG.switchState(new MainMenuState());
+						FlxG.switchState(()->new MainMenuState());
 					}		
 			}
 		}

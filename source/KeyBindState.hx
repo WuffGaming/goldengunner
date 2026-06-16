@@ -93,7 +93,7 @@ class KeyBindState extends MusicBeatState
 
         if(controls.BACK && !isWaitingInput)
         {
-            FlxG.switchState(new OptionsMenu());
+            FlxG.switchState(()->new OptionsMenu());
         }
     }
 
