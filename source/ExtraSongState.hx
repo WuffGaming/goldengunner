@@ -56,9 +56,6 @@ class ExtraSongState extends MusicBeatState
     ];
 
 	var logos:Array<FlxSprite> = [];
-
-	var logoNames:Array<String> = ['SonicExe', 'HypnosLullaby', 'Shaggy', 'YungLixo'];
-	var sourceModLinks:Array<String> = ['https://gamebanana.com/mods/316022', 'https://gamebanana.com/mods/332345', 'https://gamebanana.com/mods/284121', 'https://gamejolt.com/games/yunglixomod/655212'];
     
     private var grpSongs:FlxTypedGroup<Alphabet>;
 
@@ -84,9 +81,9 @@ class ExtraSongState extends MusicBeatState
 		bg.color = 0xFF4965FF;
 		add(bg);
 
-		addWeek(['Apprentice'], 0, ['tristan']);
-		addWeek(['Cuberoot'], 1, ['disability']);
-		addWeek(['RECOVERED-PROJECT'], 6, ['recovered']);
+		addWeek(['Apprentice-(Beta-Mix)'], 0, ['tristan']);
+		addWeek(['RECOVERED-PROJECT-(Ingame-Version)'], 6, ['recovered']);
+		addWeek(['Cuberoot-(Alpha-Mix)'], 1, ['disability']);
 
         grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -243,26 +240,6 @@ class ExtraSongState extends MusicBeatState
             default:
                 swagText.visible = false;
         }
-
-		#if PRELOAD_ALL
-			var hmm;
-			try
-			{                    
-				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), 1);
-	
-				trace(poop);
-				hmm = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
-				if (hmm != null)
-				{
-					Conductor.changeBPM(hmm.bpm);
-				}
-			}
-			catch (ex)
-			{
-			}
-		Conductor.songPosition = 0;
-		curBeat = 0;
-		#end
 
 		var bullShit:Int = 0;
 

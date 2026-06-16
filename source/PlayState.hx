@@ -1113,7 +1113,7 @@ class PlayState extends MusicBeatState
 				preload('characters/butchatrix');
 			case 'cell':
 				preload('characters/CellMad');
-			case 'apprentice':
+			case 'apprentice' | 'apprentice-(beta-mix)':
 				preload('characters/adopted_motherfucker');
 				preload('characters/3D_BF');
 				preload('apprentice/daverson');
@@ -1871,7 +1871,7 @@ class PlayState extends MusicBeatState
 				bg.scale.set(0.7, 0.7);
 				bg.updateHitbox();
 				add(bg);
-			case 'apprentice':
+			case 'apprentice' | 'apprentice-(beta-mix)':
 				defaultCamZoom = 0.75;
 				curStage = 'trist';
 				var bg:FlxSprite = new FlxSprite(-450, -200).loadGraphic(Paths.image('trist/trist'));
@@ -2003,7 +2003,7 @@ class PlayState extends MusicBeatState
 						curStage = 'jeez';
 						
 
-					case 'apprentice':
+					case 'apprentice' | 'apprentice-(beta-mix)':
 						bg.loadGraphic(Paths.image('trist/trist'));
 						bg.screenCenter();
 						curStage = 'trist';
@@ -2650,7 +2650,7 @@ class PlayState extends MusicBeatState
 					skyFNF = true;
 				}
 
-				if (SONG.song.toLowerCase() == 'apprentice' && daBeats > 41 && daBeats < 91)
+				if (SONG.song.toLowerCase() == 'apprentice' && daBeats > 41 && daBeats < 91 || SONG.song.toLowerCase() == 'apprentice-(beta-mix)' && daBeats > 41 && daBeats < 91)
 					daNoteStyle = '3d';
 
 				var gottaHitNote:Bool = section.mustHitSection;
@@ -6086,7 +6086,7 @@ class PlayState extends MusicBeatState
 			flumpteez.animation.play('idle', true);
 		}
 
-		if(curBeat % 2 == 0 && SONG.song.toLowerCase() == 'apprentice')
+		if(curBeat % 2 == 0 && SONG.song.toLowerCase() == 'apprentice' || curBeat % 2 == 0 && SONG.song.toLowerCase() == 'apprentice-(beta-mix)')
 		{
 			if(pissStainDad.animation.getByName('idle') != null && pissStainDad != null)
 			{
@@ -6114,7 +6114,7 @@ class PlayState extends MusicBeatState
 			triggeredStupidDumbassPooperShitterInTheToiletAnus = true;
 		}
 
-		if(SONG.song.toLowerCase() == 'apprentice')
+		if(SONG.song.toLowerCase() == 'apprentice' || SONG.song.toLowerCase() == 'apprentice-(beta-mix)')
 		{
 			switch(curBeat)
 			{
