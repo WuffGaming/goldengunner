@@ -50,6 +50,7 @@ class PauseSubState extends MusicBeatSubstate
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
+		levelInfo.antialiasing = true;
 		add(levelInfo);
 
 		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
@@ -57,6 +58,7 @@ class PauseSubState extends MusicBeatSubstate
 		levelDifficulty.scrollFactor.set();
 		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
 		levelDifficulty.updateHitbox();
+		levelDifficulty.antialiasing = true;
 		add(levelDifficulty);
 
 		var blueballedTxt:FlxText = new FlxText(20, 15 + 29, 0, "", 32);
@@ -65,6 +67,7 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		blueballedTxt.updateHitbox();
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
+		blueballedTxt.antialiasing = true;
 		add(blueballedTxt);
 
 		practiceText = new FlxText(20, 15 + 61, 0, "PRACTICE MODE", 32);
@@ -72,13 +75,16 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.updateHitbox();
+		practiceText.antialiasing = true;
 		practiceText.visible = PlayState.practicing;
 		add(practiceText);
+
 		bottyText = new FlxText(20, 15 + 88, 0, "BOTPLAY", 32);
 		bottyText.scrollFactor.set();
 		bottyText.setFormat(Paths.font('vcr.ttf'), 32);
 		bottyText.x = FlxG.width - (practiceText.width + 20);
 		bottyText.updateHitbox();
+		bottyText.antialiasing = true;
 		bottyText.visible = PlayState.bottyPlay;
 		add(bottyText);
 
@@ -97,19 +103,6 @@ class PauseSubState extends MusicBeatSubstate
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.4});
 		FlxTween.tween(practiceText, {alpha: 1, y: practiceText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(bottyText, {alpha: 1, y: bottyText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
-
-
-		if (PlayState.SONG.song.toLowerCase() == 'wireframe' && SaveFileState.saveFile.data.elfMode) {
-			var elf = new FlxSprite();
-			elf.frames = Paths.getSparrowAtlas('THE BEST EVER/untitled');
-			elf.animation.addByPrefix('idle', 'MY BALDI BASICS PLUS PRO GAMES', 24, true);
-			elf.animation.play('idle');
-			elf.setPosition(1280 - elf.width, 720 - elf.height);
-			elf.antialiasing = false;
-			elf.alpha = 0;
-			add(elf);
-			FlxTween.tween(elf, {alpha: 1}, 2.5, {startDelay: 0.5});
-		}
 
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
 		add(grpMenuShit);

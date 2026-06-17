@@ -40,7 +40,7 @@ class StartupState extends MusicBeatState
     var hasSuckedMyCock:Bool = false;
 
     //I'd say any song around 4:00+ goes here.
-    var preloadSongs:Array<String> = ['Algebra', 'AppleCore', 'Deformation', 'RECOVERED-PROJECT', 'Ferocious'];
+    var preloadSongs:Array<String> = [];
 
     var howManyItemsToPreload:Int = 0;
 

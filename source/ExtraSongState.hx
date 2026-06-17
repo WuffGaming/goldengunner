@@ -43,16 +43,16 @@ class ExtraSongState extends MusicBeatState
 	var awesomeText:FlxText = new FlxText(0, 0, FlxG.width, 'Press space to view the OG mod!', 85);
 
     var songColors:Array<FlxColor> = [
-    	0xFFca1f6f, // GF
-		0xFF4965FF, // DAVE
-		0xFF00B515, // MISTER BAMBI r slur (i cant reclaim) //MISTER BAMBI RETARD (i can though)
-		0xFF00FFFF, //SPLIT THE THONNNNN
-		0xFF000000, // sart.
-		FlxColor.YELLOW, //GARRETT????
-		FlxColor.WHITE, //leaked recovered project full week
-		FlxColor.GRAY, //HOLY SHIT ITS PLAYROBOT!!!
-		FlxColor.LIME, //ALIEN?!?!?!?!
-		FlxColor.BLUE //DIAMOND MAN!??!?!?!?!?!?
+    	0xFFca1f6f, // GF 0
+		0xFF4965FF, // DAVE 1
+		0xFF00B515, // MISTER 2 BAMBI r slur (i cant reclaim) //MISTER BAMBI RETARD (i can though)
+		0xFF00FFFF, //SPLIT THE THONNNNN 3
+		0xFF000000, // sart. 4
+		FlxColor.YELLOW, //GARRETT???? 5
+		FlxColor.WHITE, //leaked recovered project full week you gett it
+		FlxColor.GRAY, //HOLY SHIT ITS PLAYROBOT!!! 7
+		FlxColor.LIME, //ALIEN?!?!?!?! 8
+		FlxColor.BLUE //DIAMOND MAN!??!?!9?!?!?!?
     ];
 
 	var logos:Array<FlxSprite> = [];
@@ -81,9 +81,11 @@ class ExtraSongState extends MusicBeatState
 		bg.color = 0xFF4965FF;
 		add(bg);
 
-		addWeek(['Apprentice-(Beta-Mix)'], 0, ['tristan']);
-		addWeek(['RECOVERED-PROJECT-(Ingame-Version)'], 6, ['recovered']);
-		addWeek(['Cuberoot-(Alpha-Mix)'], 1, ['disability']);
+		addSong('Apprentice-(Beta-Mix)', 0, 'tristan');
+		addSong('RECOVERED-PROJECT-(Ingame-Version)', 6, 'recovered');
+		addSong('Cuberoot-(Alpha-Mix)', 1, 'disability');
+		addSong('Ferocious-(Short-Mix)', 5, 'garrett-animal');
+		addSong('AppleCore-(Short-Mix)', 0, 'unfair');
 
         grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);

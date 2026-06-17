@@ -357,11 +357,8 @@ class Note extends FlxSprite
 						
 				}
 		}
-		switch (PlayState.SONG.song.toLowerCase())
+		if (Type.getClassName(Type.getClass(FlxG.state)).contains("PlayState"))
 		{
-			case 'cheating' | 'unfairness' | 'applecore' | 'ripple' | 'amongfairness' | 'grantare-sings-cheating' | 'grantare-sings-unfairness':
-				if (Type.getClassName(Type.getClass(FlxG.state)).contains("PlayState"))
-				{
 					var state:PlayState = cast(FlxG.state,PlayState);
 					InPlayState = true;
 					if (musthit)
@@ -386,9 +383,8 @@ class Note extends FlxSprite
 								}
 							});
 					}
-				}
 		}
-		if (PlayState.SONG.song.toLowerCase() == 'unfairness' || PlayState.SONG.song.toLowerCase() == 'applecore' || PlayState.SONG.song.toLowerCase() == 'grantare-sings-unfairness' || PlayState.SONG.song.toLowerCase() == 'amongfairness')
+		if (PlayState.SONG.song.toLowerCase() == 'unfairness' || PlayState.SONG.song.toLowerCase() == 'applecore' || PlayState.SONG.song.toLowerCase() == 'applecore-(short-mix)' || PlayState.SONG.song.toLowerCase() == 'grantare-sings-unfairness' || PlayState.SONG.song.toLowerCase() == 'amongfairness')
 		{
 			var rng:FlxRandom = new FlxRandom();
 			if (rng.int(0,120) == 1)

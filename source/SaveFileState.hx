@@ -79,6 +79,7 @@ class SaveFileState extends MusicBeatState
 
 		texty = new FlxText(10, FlxG.height - 34, FlxG.width, 'Press R to reset all save data', 24);
 		texty.setFormat('Comic Sans MS Bold', 24, FlxColor.WHITE, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		texty.antialiasing = true;
 		add(texty);
 
 		super.create();
@@ -95,6 +96,7 @@ class SaveFileState extends MusicBeatState
 		baldisPenis.screenCenter();
 		FlxTween.tween(baldisPenis, {alpha: 0.75}, 0.3);
 		warner = new FlxText(0, 50, FlxG.width, 'WARNING!\nThis will erase every save\nand all of your options!\nTHIS CANNOT BE REVERSED!\nIf you press yes, the game will restart to a clean slate!\nY - Yes\nN - No', 42);
+		warner.antialiasing = true;
 		warner.setFormat("Comic Sans MS Bold", 42, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		warner.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 4, 1);
 		warner.screenCenter();

@@ -32,6 +32,8 @@ class IntroState extends MusicBeatState
 {
     var logo:FlxSprite;
 
+    var junkSound:FlxSound = new FlxSound().loadEmbedded(Paths.sound('junk'), false, true);
+
     var hasTimerStarted:Bool = false;
 
 	override public function create():Void
@@ -44,7 +46,7 @@ class IntroState extends MusicBeatState
         add(logo);
         logo.animation.play('intro');
         FlxTween.tween(logo, {alpha: 1}, 0.75);
-        FlxG.sound.play(Paths.sound('junk'));
+        junkSound.play();
 		super.create();
 	}
 
@@ -53,6 +55,14 @@ class IntroState extends MusicBeatState
 		if (FlxG.keys.justPressed.F)
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
+        if (FlxG.keys.justPressed.ENTER)
+		{
+            junkSound.stop();
+            junkSound.destroy();
+            logo.animation.pause();
+			FlxG.switchState(()->new TitleState());
 		}
 
         if(!hasTimerStarted)

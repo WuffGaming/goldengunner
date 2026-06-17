@@ -65,7 +65,6 @@ class HealthIcon extends FlxSprite
 		'do-you-accept-player',
 		'bambroot',
 		'shitter',
-		'jambi',
 		'dave-unchecked',
 		'cheaty',
 		'cell',

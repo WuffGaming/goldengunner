@@ -132,21 +132,6 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		bf.playAnim('firstDeath');
 
-		if (PlayState.SONG.song.toLowerCase() == 'disability' && SaveFileState.saveFile.data.elfMode) {
-			bf.visible = false;
-			var elf = new FlxSprite();
-			elf.frames = Paths.getSparrowAtlas('THE BEST EVER/untitled');
-			elf.animation.addByPrefix('idle', 'MY BALDI BASICS PLUS PRO GAMES', 24, true);
-			elf.animation.play('idle');
-			elf.scale.set(2.5, 2.5);
-			elf.scrollFactor.set(0, 0);
-			elf.screenCenter();
-			elf.antialiasing = false;
-			elf.alpha = 0;
-			add(elf);
-			FlxTween.tween(elf, {alpha: 1}, 2.5, {startDelay: 0.5});
-		}
-
 		if (PlayState.SONG.song.toLowerCase() == 'cycles') {
 			var img = new FlxSprite().loadGraphic(Paths.image('sart/RobloxScreenShot20220213_202053230'));
 			img.setGraphicSize(1280);
@@ -308,10 +293,6 @@ class GameOverSubstate extends MusicBeatSubstate
 			else if (PlayState.SONG.song.toLowerCase() == 'irreversible-action') {
 				trace("https://cdn.discordapp.com/attachments/515627811621437441/938007191254859796/unknown.png");
 
-				SaveFileState.saveFile.data.elfDiscovered = true;
-
-				SaveFileState.saveFile.data.elfMode = true;
-
 				PlayState.practicing = false;
 			
 				PlayState.fakedScore = false;
@@ -329,8 +310,6 @@ class GameOverSubstate extends MusicBeatSubstate
 				PlayState.storyWeek = 1;
 				LoadingState.loadAndSwitchState(new PlayState());
 			}
-			else if (PlayState.SONG.song.toLowerCase() == 'penis')
-				FlxG.switchState(()->new GetBackState());
 			else
 				PlayState.practicing = false;
 			

@@ -49,18 +49,16 @@ class CoolUtil
 		var diff:String = 'unknown';
 		switch(song.toLowerCase())
 		{
-			case 'applecore' | 'penis' | 'wednesday' | 'among-us-penis-sex':
+			case 'applecore' | 'applecore-(short-mix)':
 				diff = 'extreme';
-			case 'disruption' | 'jambino' | 'sugar-rush' | 'ferocious' | 'minus-disruption' | 'minus-wireframe' | 'minus-sugar-rush' | 'gift-card' | 'og' | 'ripple' | 'deformation' | 'algebra' | 'triple-trouble' | 'slices' | 'left-unchecked' | 'collision' | 'ready-loud' | 'poopers' | 'amongfairness' | 'the-boopadoop-song' | 'sweaty-workout' | 'clit' | 'sit-on-my-face' | 'gobbledegook' | 'generic' | 'encrypted' | 'bandu-radical' | 'locked-lips':
+			case 'disruption' | 'sugar-rush' | 'ferocious' | 'ferocious-(short-mix)' | 'minus-disruption' | 'minus-wireframe' | 'minus-sugar-rush' | 'gift-card' | 'og' | 'ripple' | 'deformation' | 'algebra' | 'triple-trouble' | 'slices' | 'left-unchecked' | 'collision' | 'ready-loud' | 'poopers' | 'amongfairness' | 'the-boopadoop-song' | 'sweaty-workout' | 'clit' | 'sit-on-my-face' | 'gobbledegook' | 'generic' | 'encrypted' | 'bandu-radical' | 'locked-lips':
 				diff = 'hard';
-			case 'bookworm' | 'disability' | 'dale' | 'recovered-project' | 'recovered-project-(ingame-version)' | 'minus-recovered-project' | 'fresh-and-toasted' | 'metallic' | 'keyboard' | 'chippy' | 'cell' | 'wireframe' | 'cotton-candy' | 'irreversible-action' | 'ticking' | 'unhinged' | 'sunshine'  | 'cuberoot-(alpha-mix)' | 'cuberoot' | 'thunderstorm' | 'too-shiny' | 'apprentice-(beta-mix)' | 'apprentice' | 'ny-tristan' | 'pee-shooter' | 'second-coming-of-the-' | 'i-am-canonically-trans' | 'fl-keys' | 'fuckity' | 'bug-eyed-bitch' | 'jerry-the-mouse' | 'threesome' | 'the-100th-ruby-song' | 'my-home' | 'tantalum' | 'sillier':
+			case 'bookworm' | 'disability' | 'dale' | 'recovered-project' | 'recovered-project-(ingame-version)' | 'keyboard' | 'chippy' | 'cell' | 'wireframe' | 'ticking' | 'unhinged' | 'sunshine'  | 'cuberoot-(alpha-mix)' | 'cuberoot' | 'thunderstorm' | 'too-shiny' | 'apprentice-(beta-mix)' | 'apprentice' | 'ny-tristan' | 'pee-shooter' | 'second-coming-of-the-' | 'i-am-canonically-trans' | 'fl-keys' | 'fuckity' | 'bug-eyed-bitch' | 'jerry-the-mouse' | 'threesome' | 'the-100th-ruby-song' | 'my-home' | 'tantalum' | 'sillier':
 				diff = 'normal';
 			case 'origin' | 'strawberry' | 'ugh' | 'sart-producer' | 'theft' | 'the-big-dingle' | 'corrupted-file' | 'sick-tricks' | 'galactic' | 'dave-x-bambi-shipping-cute' | 'production' | 'wheels' | 'alternate' | 'cycles' | 'resumed' | 'impregnate' | 'chilli-powder' | 'trampoline-accident' | 'pink-bandu' | 'the-willy-walter-rap' | 'third-chance' | 'reflection' | '2-spheres' | 'balls':
 				diff = 'easy';
-			case 't4-player':
-				diff = 'uncharted';
 			default:
-				diff = 'unknown';
+				diff = 'uncharted';
 		}
 		return diff;
 	}
