@@ -193,6 +193,7 @@ class ExtraSongState extends MusicBeatState
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
 				case 'og-(original-draft)':
+					FlxTween.cancelTweensOf(swagText);
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					swagText.text = 'You fucked the\nBPM up bro!!!';
                 	swagText.visible = true;

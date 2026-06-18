@@ -5875,6 +5875,35 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if(SONG.song.toLowerCase() == 'dave-x-bambi-shipping-cute-(removed-version)')
+		{
+			switch(curStep)
+			{
+				case 40 | 44 | 108 | 288 | 290 | 292 | 294 | 296 | 298 | 299 | 300 | 324 | 552 | 556 | 620:
+					dad.playAnim('singSmash', true);
+				case 400:
+					dad.curCamOffsetX = 0;
+					dad.curCamOffsetY = 0;
+					boyfriend.curCamOffsetX = 0;
+					boyfriend.curCamOffsetY = 0;
+					dad.canDance = false;
+					boyfriend.canDance = false;
+					dad.canSing = false;
+					boyfriend.canSing = false;
+					dad.playAnim('talk', true);
+					boyfriend.playAnim('talk', true);
+				case 528:
+					dad.canDance = true;
+					boyfriend.canDance = true;
+					dad.canSing = true;
+					boyfriend.canSing = true;
+				case 912:
+					dad.canDance = false;
+					dad.canSing = false;
+					dad.playAnim('holyshit', true);
+			}
+		}
+
 		if (SONG.song.toLowerCase() == 'sunshine')
 		{
 			if (curStep == 64)
