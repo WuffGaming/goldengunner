@@ -192,7 +192,7 @@ class ExtraSongState extends MusicBeatState
                 case 'unknown':
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
-				case 'OG-(Original-Draft)':
+				case 'og-(original-draft)':
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					swagText.text = 'You fucked the\nBPM up bro!!!';
                 	swagText.visible = true;

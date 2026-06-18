@@ -51,11 +51,11 @@ class CoolUtil
 		{
 			case 'applecore' | 'applecore-(short-mix)':
 				diff = 'extreme';
-			case 'disruption' | 'sugar-rush' | 'ferocious' | 'ferocious-(short-mix)' | 'gift-card' | 'og-(original-draft)' | 'ripple' | 'deformation' | 'algebra-(pre-release-draft)' | 'slices' | 'ready-loud':
+			case 'disruption' | 'sugar-rush' | 'ferocious' | 'ferocious-(short-mix)' | 'gift-card' | 'og-(original-draft)' | 'ripple' | 'deformation' | 'algebra-(pre-release-teaser)' | 'slices' | 'ready-loud':
 				diff = 'hard';
 			case 'bookworm' | 'disability' | 'dale' | 'recovered-project' | 'recovered-project-(ingame-version)' | 'keyboard' | 'cell' | 'wireframe' | 'ticking' | 'unhinged' | 'cuberoot-(alpha-mix)' | 'cuberoot' | 'thunderstorm' | 'too-shiny' | 'apprentice-(beta-mix)' | 'apprentice' | 'tantalum':
 				diff = 'normal';
-			case 'origin' | 'strawberry' | 'the-big-dingle' | 'corrupted-file' | 'sick-tricks' | 'dave-x-bambi-shipping-cute' | 'wheels' | 'alternate' | 'cycles' | 'resumed':
+			case 'origin' | 'strawberry' | 'the-big-dingle' | 'corrupted-file' | 'sick-tricks' | 'dave-x-bambi-shipping-cute' | 'dave-x-bambi-shipping-cute-(removed-version)' | 'wheels' | 'alternate' | 'cycles' | 'resumed':
 				diff = 'easy';
 			default:
 				diff = 'uncharted';
