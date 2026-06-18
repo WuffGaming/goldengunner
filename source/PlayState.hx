@@ -894,7 +894,7 @@ class PlayState extends MusicBeatState
 			boyfriend.y += 75;
 		}*/
 
-		if (SONG.song.toLowerCase() == 'dave-x-bambi-shipping-cute' || SONG.song.toLowerCase() == 'cuberoot' || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)' ) gf.visible = false;
+		if (SONG.song.toLowerCase() == 'dave-x-bambi-shipping-cute-(removed-version)' || SONG.song.toLowerCase() == 'dave-x-bambi-shipping-cute' || SONG.song.toLowerCase() == 'cuberoot' || SONG.song.toLowerCase() == 'cuberoot-(alpha-mix)' ) gf.visible = false;
 
 		if(SONG.song.toLowerCase() == "unfairness")
 		{
@@ -1526,7 +1526,7 @@ class PlayState extends MusicBeatState
 				reloadTrixBg(1);
 				reloadTrixBg(2);
 				reloadTrixBg(fucker);
-			case 'og':
+			case 'og' | 'og-(original-draft)':
 				curStage = 'suckMyFatFuckingCock';
 				defaultCamZoom = 0.9;
 				var dick:FlxSprite = new FlxSprite(-700, -430).loadGraphic(Paths.image('ogStage/ogBackground'));
@@ -1817,7 +1817,7 @@ class PlayState extends MusicBeatState
 				littleGuy.antialiasing = false;
 				littleGuy.updateHitbox();
 				add(littleGuy);
-			case 'algebra' | 'gotta-sleep':
+			case 'algebra' | 'gotta-sleep' | 'algebra-(pre-release-teaser)':
 				curStage = 'algebra';
 				defaultCamZoom = 0.85;
 
@@ -5798,7 +5798,7 @@ class PlayState extends MusicBeatState
 						dumberStupid.alpha = 0;
 						add(dumberStupid);
 						dumberStupid.cameras = [camHUD];
-						FlxTween.tween(dumberStupid, {alpha: 1}, 1.321); // loool
+						FlxTween.tween(dumberStupid, {alpha: 1}, 0.5); // loool
 				}
 		}
 

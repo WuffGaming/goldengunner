@@ -86,6 +86,10 @@ class ExtraSongState extends MusicBeatState
 		addSong('Cuberoot-(Alpha-Mix)', 1, 'disability');
 		addSong('Ferocious-(Short-Mix)', 5, 'garrett-animal');
 		addSong('AppleCore-(Short-Mix)', 0, 'unfair');
+		addSong('OG-(Original-Draft)', 6, 'prealpha');
+		addSong('Algebra-(Pre-Release-Teaser)', 1, 'og-dave');
+		addSong('Dave-x-Bambi-Shipping-Cute-(Removed-Version)', 2, 'dab');
+		//addSong('', , '');
 
         grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);
@@ -188,6 +192,13 @@ class ExtraSongState extends MusicBeatState
                 case 'unknown':
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
+				case 'OG-(Original-Draft)':
+                    FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+					swagText.text = 'You fucked the\nBPM up bro!!!';
+                	swagText.visible = true;
+					swagText.alpha = 1;
+					FlxTween.tween(swagText, {alpha: 0}, 1);
+					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
                 default:   
 					var pisswad = songs[curSelected].songName.toLowerCase();
 
@@ -239,7 +250,9 @@ class ExtraSongState extends MusicBeatState
             case 'unknown':
                 swagText.text = 'A secret is required to unlock this song!';
                 swagText.visible = true;
+				swagText.alpha = 1;
             default:
+				swagText.alpha = 0;
                 swagText.visible = false;
         }
 
