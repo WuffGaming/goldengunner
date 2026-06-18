@@ -14,7 +14,7 @@ class MemoryCounter extends TextField
 {
 	private var times:Array<Float>;
 	private var memPeak:Float = 0;
-    public var showPeak:Bool = false;
+    public var showPeak:Bool = true;
 	
 	public function new(inX:Float = 10.0, inY:Float = 10.0, inCol:Int = 0x000000) 
 	{
@@ -32,47 +32,23 @@ class MemoryCounter extends TextField
 
 	private function onEnter(_)
 	{	
-        var isGb:Bool = false;
 	    var mem:Float = Math.round(System.totalMemory / 1024 / 1024 * 100)/100;
 
 		if (mem > memPeak) memPeak = mem;
 
-        if(mem >= 1000)
-        {
-            mem /= 1000;
-            mem = Math.round(mem);
-            isGb = true;
-        }
-        else
-        {
-            mem = Std.int(mem);
-        }
+        mem = Std.int(mem);
 
         memPeak = Std.int(memPeak);
 
 		if (visible)
 		{
-            if(isGb)
+            if(showPeak)
             {
-                if(showPeak)
-                {
-                    text = "\nRAM Used: " + mem + " GB\nRAM Use peak: " + memPeak + " MB";	
-                }
-                else
-                {
-                    text = "\nRAM Used: " + mem + " GB";	
-                }
+                text = "\nRAM Used: " + mem + " MB\nRAM Use peak: " + memPeak + " MB";	
             }
             else
             {
-                if(showPeak)
-                {
-                    text = "\nRAM Used: " + mem + " MB\nRAM Use peak: " + memPeak + " MB";	
-                }
-                else
-                {
-                    text = "\nRAM Used: " + mem + " MB";	
-                }
+                text = "\nRAM Used: " + mem + " MB";	
             }
 		}
 	}

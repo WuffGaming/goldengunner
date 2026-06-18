@@ -81,12 +81,9 @@ class Main extends Sprite
 		fpsCounter.defaultTextFormat = new TextFormat("Comic Sans MS Bold", 20, 0xFFFFFF, true);
 		addChild(fpsCounter);
 
-		// no
-		/*
 		memoryCounter = new MemoryCounter(10, fpsCounter.y + 13, 0xffffff);
 		memoryCounter.defaultTextFormat = new TextFormat("Comic Sans MS Bold", 14, 0xFFFFFF, true);
 		addChild(memoryCounter);
-		*/
 		#end
 	}
 
@@ -109,12 +106,12 @@ class Main extends Sprite
 			case false:
 			{
 				fpsCounter.visible = false;
-				//memoryCounter.visible = false;
+				memoryCounter.visible = false;
 			}
 			default:
 			{
 				fpsCounter.visible = true;
-				//memoryCounter.visible = true;
+				memoryCounter.visible = true;
 			}
 		}
 	}

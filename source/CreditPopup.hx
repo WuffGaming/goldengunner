@@ -24,7 +24,8 @@ class CreditPopup extends FlxSpriteGroup
         funnyText.setFormat('Comic Sans MS Bold', 32, FlxColor.BLACK, LEFT);
         switch(songy.toLowerCase())
         {
-            case 'disruption' | 'minus-disruption' | 'applecore' | 'applecore-(short-mix)' | 'disability' | 'algebra' | 'future' | 'nice' | 'resumed' | 'sugar-rush' | 'recovered-project' | 'recovered-project-(ingame-version)' | 'minus-recovered-project' | 'dave-x-bambi-shipping-cute' | 'bookworm' | 'the-big-dingle':
+            case 'disruption' | 'minus-disruption' | 'applecore' | 'applecore-(short-mix)' | 'disability' | 'algebra' | 'future' | 'nice' | 'resumed' | 'sugar-rush' | 'recovered-project' | 'recovered-project-(ingame-version)' 
+            | 'dave-x-bambi-shipping-cute' | 'bookworm' | 'the-big-dingle' | 'dave-x-bambi-shipping-cute-(removed-version)' | 'algebra-(pre-release-teaser)':
                 funnyText.text = 'Song by Grantare';
             case 'ferocious' | 'ferocious-(short-mix)':
                 funnyText.text = 'Song by Grantare\nOriginal Mod by Jumpman25';
@@ -38,25 +39,13 @@ class CreditPopup extends FlxSpriteGroup
                 bitchyBalls.scale.set(2.25, 1);
             case 'fresh-and-toasted':
                 funnyText.text = 'Song by R34D34L';
-            case 'cuberoot' | 'cuberoot-(alpha-mix)' | 'og' | 'production' | 'cheating-not-cute' | 'dale' | 'ticking' | 'irreversible-action' | 'apprentice' | 'apprentice-(beta-mix)':
+            case 'cuberoot' | 'cuberoot-(alpha-mix)' | 'og-(original-draft)' | 'production' | 'cheating-not-cute' | 'dale' | 'ticking' | 'irreversible-action' | 'apprentice' | 'apprentice-(beta-mix)':
                 funnyText.text = 'Song by Aadsta';
             case 'nft' | 'upcoming-cop' | 'enforcers' | 'cell' | 'alternate':
                 funnyText.text = 'Song by Wildy';
             case 'cooking-lesson':
                 funnyText.text = 'Song by Alexander Cooper 19';
                 bitchyBalls.scale.set(2.25, 1);
-            case 'wheels' | 'speed' | 'unhinged' | 'underscore' | 'poopers':
-                funnyText.text = 'Song by Ruby';
-            case 'awesome':
-                funnyText.text = 'Song by Ruby and Aadsta';
-            case 'theft' | 'hiccup' | 'corndog':
-                funnyText.text = 'Song by NLee';
-            case 'slices':
-                funnyText.text = 'Song by Top 10 Awesome';
-                bitchyBalls.scale.set(1.5, 1);
-            case 'penis':
-                funnyText.text = "Lovely Stories Told by Our Beloved Penis Elf!";
-                bitchyBalls.scale.set(3, 1);
             case 'strawberry':
                 funnyText.text = 'Song by Cynda and Grantare';
                 bitchyBalls.scale.set(2.25, 1);
@@ -67,25 +56,8 @@ class CreditPopup extends FlxSpriteGroup
                 bitchyBalls.scale.set(1.5, 2);
             case 'gift-card':
                 funnyText.text = 'Song by Cval';
-            case 'too-shiny' | 'kirbathon':
+            case 'too-shiny':
                 funnyText.text = 'Song by Gorbini';
-            case 'cycles':
-                funnyText.text = 'Song by Vania';
-            case 'left-unchecked':
-                funnyText.text = 'Song by Adam McHummus';
-                bitchyBalls.scale.set(1.25, 1);
-            case 'sunshine' | 'triple-trouble':
-                funnyText.text = 'Song by MarStarBro';
-                bitchyBalls.scale.set(1.25, 1);
-            case 'thunderstorm':
-                funnyText.text = 'Song by Saruky';
-            case 'the-boss':
-                funnyText.text = 'Song by Pastel';
-            case 'collision':
-                funnyText.text = 'Song by BeastlyChip'; 
-                bitchyBalls.scale.set(1.15, 1);
-            case 'sillier':
-                funnyText.text = 'Song by Bmv277';
         }
         add(funnyText);
     }

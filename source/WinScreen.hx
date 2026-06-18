@@ -70,11 +70,13 @@ class WinScreen extends MusicBeatState
         rankTextLol.setFormat('Comic Sans MS Bold', 300, FlxColor.BLACK, CENTER);
         rankTextLol.screenCenter();
         rankTextLol.y -= 10;
+        rankTextLol.antialiasing = true;
         add(rankTextLol);
 
         accText = new FlxText(0, rankTextLol.y + rankTextLol.height + 30, FlxG.width, '0% Accuracy', 22);
         accText.setFormat('Comic Sans MS Bold', 64, FlxColor.BLACK, CENTER);
         accText.screenCenter(X);
+        accText.antialiasing = true;
         add(accText);
 
         super.create();

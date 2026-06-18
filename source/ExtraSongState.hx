@@ -195,7 +195,7 @@ class ExtraSongState extends MusicBeatState
 				case 'og-(original-draft)':
 					FlxTween.cancelTweensOf(swagText);
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-					swagText.text = 'You fucked the\nBPM up bro!!!';
+					swagText.text = 'the bpm is too fucked\niunn wanna chart thiiiis\n im lauzy\n       Hi';
                 	swagText.visible = true;
 					swagText.alpha = 1;
 					FlxTween.tween(swagText, {alpha: 0}, 1);
@@ -224,14 +224,8 @@ class ExtraSongState extends MusicBeatState
 					PlayState.deathCounter = 0;
 
                     PlayState.storyWeek = songs[curSelected].week;
-					if(songs[curSelected].songName.toLowerCase() == 'midnight' || songs[curSelected].songName.toLowerCase() == 'ready-loud' || songs[curSelected].songName.toLowerCase() == 'irreversible-action' || songs[curSelected].songName.toLowerCase() == 'cuberoot' || songs[curSelected].songName.toLowerCase() == 'dave-x-bambi-shipping-cute' || songs[curSelected].songName.toLowerCase() == 'cheating-not-cute' || songs[curSelected].songName.toLowerCase() == 'left-unchecked' || songs[curSelected].songName.toLowerCase() == 'collision')
-					{
-						LoadingState.loadAndSwitchState(new PlayState());
-					}
-					else
-					{
-						LoadingState.loadAndSwitchState(new CharacterSelectState());
-					}
+
+					LoadingState.loadAndSwitchState(new PlayState());
             }
 		}
     }
