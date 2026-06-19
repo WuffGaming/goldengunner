@@ -39,7 +39,7 @@ class MusicBeatState extends FlxUIState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.keys.justPressed.ONE)
+		if (FlxG.keys.justPressed.F11 || FlxG.keys.justPressed.F || FlxG.keys.justPressed.ONE) // We got three fullscreen buttons
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}

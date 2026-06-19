@@ -57,8 +57,10 @@ class CoolUtil
 				diff = 'normal';
 			case 'origin' | 'strawberry' | 'the-big-dingle' | 'corrupted-file' | 'sick-tricks' | 'dave-x-bambi-shipping-cute' | 'dave-x-bambi-shipping-cute-(removed-version)' | 'wheels' | 'alternate' | 'cycles' | 'resumed':
 				diff = 'easy';
-			default:
+			case 'unknown':
 				diff = 'uncharted';
+			default:
+				diff = 'unknown';
 		}
 		return diff;
 	}

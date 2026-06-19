@@ -86,6 +86,7 @@ class ExtraSongState extends MusicBeatState
 		addSong('Cuberoot-(Alpha-Mix)', 1, 'disability');
 		addSong('Ferocious-(Short-Mix)', 5, 'garrett-animal');
 		addSong('AppleCore-(Short-Mix)', 0, 'unfair');
+		addSong('Cheating-Not-Cute', 2, 'dab');
 		addSong('OG-(Original-Draft)', 6, 'prealpha');
 		addSong('Algebra-(Pre-Release-Teaser)', 1, 'og-dave');
 		addSong('Dave-x-Bambi-Shipping-Cute-(Removed-Version)', 2, 'dab');
