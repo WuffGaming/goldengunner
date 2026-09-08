@@ -90,6 +90,9 @@ class ExtraSongState extends MusicBeatState
 		addSong('OG-(Original-Draft)', 6, 'prealpha');
 		addSong('Algebra-(Pre-Release-Teaser)', 1, 'og-dave');
 		addSong('Dave-x-Bambi-Shipping-Cute-(Removed-Version)', 2, 'dab');
+		addSong('Frustration-(C3PO-Mix)', 1, 'disability');
+		addSong('Algebra-(Legacy-Mix)', 1, 'og-dave');
+		addSong('Ticking-(1.5-Teaser)', 6, 'ouch');
 		//addSong('', , '');
 
         grpSongs = new FlxTypedGroup<Alphabet>();

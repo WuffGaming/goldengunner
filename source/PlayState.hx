@@ -711,7 +711,7 @@ class PlayState extends MusicBeatState
 				/*gf.setPosition(450, 300);
 				boyfriend.setPosition(570, 500);
 				dad.setPosition(420, 490);*/
-			case 'ticking':
+			case 'ticking' | 'ticking-(1.5-teaser)':
 				gf.visible = false;
 				dad.y -= 275;
 				dad.x -= 350;
@@ -1107,7 +1107,7 @@ class PlayState extends MusicBeatState
 				preload('characters/badai');
 			case 'minus-wireframe':
 				preload('characters/batai');
-			case 'algebra':
+			case 'algebra' | 'algebra-(legacy-mix)':
 				preload('characters/HALL_MONITOR');
 				preload('characters/diamondMan');
 				preload('characters/playrobot');
@@ -1817,11 +1817,11 @@ class PlayState extends MusicBeatState
 				littleGuy.antialiasing = false;
 				littleGuy.updateHitbox();
 				add(littleGuy);
-			case 'algebra' | 'gotta-sleep' | 'algebra-(pre-release-teaser)':
+			case 'algebra' | 'gotta-sleep' | 'algebra-(pre-release-teaser)' | 'algebra-(legacy-mix)':
 				curStage = 'algebra';
 				defaultCamZoom = 0.85;
 
-				if(SONG.song.toLowerCase() == 'algebra')
+				if(SONG.song.toLowerCase() != 'gotta-sleep')
 				{
 					swagSpeed = 1.6;
 				}
@@ -2001,7 +2001,7 @@ class PlayState extends MusicBeatState
 				pissStainDad.scale.set(0.75, 0.75);
 				pissStainDad.updateHitbox();
 				add(pissStainDad);
-			case 'disruption' | 'minus-disruption' | 'disability' | 'origin' | 'tantalum' | 'strawberry' | 'keyboard' | 'ugh' | 'jeez' | 'ripple' | 'galactic' | 'cuberoot' | 'cuberoot-(alpha-mix)':
+			case 'disruption' | 'minus-disruption' | 'disability' | 'frustration-(c3po-mix)' | 'origin' | 'tantalum' | 'strawberry' | 'keyboard' | 'ugh' | 'jeez' | 'ripple' | 'galactic' | 'cuberoot' | 'cuberoot-(alpha-mix)':
 				defaultCamZoom = 0.9;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dave/redsky'));
 				bg.active = true;
@@ -2029,7 +2029,7 @@ class PlayState extends MusicBeatState
 						gfSpeed = 2;
 						bg.loadGraphic(Paths.image('dave/rippler'));
 						curStage = 'disrupt';
-					case 'disability':
+					case 'disability' | 'frustration-(c3po-mix)':
 						bg.loadGraphic(Paths.image('dave/disabled'));
 						curStage = 'disabled';
 					case 'cuberoot' | 'cuberoot-(alpha-mix)':
@@ -2203,7 +2203,7 @@ class PlayState extends MusicBeatState
 			case 'the-boopadoop-song':
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
-			case 'ticking':
+			case 'ticking' | 'ticking-(1.5-teaser)':
 				defaultCamZoom = 0.75;
 				curStage = 'ticking';
 				var beeg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('ticking/gunkk'));
@@ -3186,26 +3186,6 @@ class PlayState extends MusicBeatState
 
 		FlxG.camera.color = fucksSprite.color;
 
-		if(!timerClicked && FlxG.mouse.overlaps(timeTxt, camHUD) && FlxG.mouse.justPressed && SONG.song.toLowerCase() != 'ticking' && !SaveFileState.saveFile.data.foundTicking)
-		{
-			timerClicked = true;
-
-			SaveFileState.saveFile.data.foundTicking = true;
-
-			var poop:String = Highscore.formatSong('ticking', 1);
-
-			trace(poop);
-
-			PlayState.SONG = Song.loadFromJson(poop, 'ticking');
-			PlayState.isStoryMode = false;
-			PlayState.storyDifficulty = 1;
-
-			PlayState.storyWeek = 2;
-			PlayState.characteroverride = 'none';
-			PlayState.formoverride = 'none';
-			LoadingState.loadAndSwitchState(new PlayState());
-		}
-
 		if(bfSpazOut)
 		{
 			boyfriend.playAnim('sing' + notestuffs[FlxG.random.int(0,3)]);
@@ -3647,7 +3627,7 @@ class PlayState extends MusicBeatState
 			
 		}
 
-		if(SONG.song.toLowerCase() == 'disability')
+		if(SONG.song.toLowerCase() == 'disability' || SONG.song.toLowerCase() == 'frustration-(c3po-mix)')
 		{
 			playerStrums.forEach(function(spr:Strum)
 			{
@@ -4262,7 +4242,7 @@ class PlayState extends MusicBeatState
 								if (Math.abs(Math.round(Math.abs(daNote.noteData)) % 4) == sprite.ID)
 								{
 									sprite.animation.play('confirm', true);
-									if (sprite.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability'))
+									if (sprite.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)'))
 									{
 										if(!awesomeChars.contains(dad.curCharacter))
 										{
@@ -4271,14 +4251,14 @@ class PlayState extends MusicBeatState
 											sprite.offset.y -= 13;
 										}
 									}
-									else if (SONG.song.toLowerCase() != 'disability')
+									else if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
 									{
 										sprite.centerOffsets();
 									}
 									sprite.animation.finishCallback = function(name:String)
 									{
 										sprite.animation.play('static',true);
-										if (SONG.song.toLowerCase() != 'disability')
+										if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
 											sprite.centerOffsets();
 									}
 		
@@ -5268,7 +5248,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-			if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability'))
+			if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)'))
 			{
 				if(!awesomeChars.contains(dad.curCharacter))
 				{
@@ -5277,7 +5257,7 @@ class PlayState extends MusicBeatState
 					spr.offset.y -= 13;
 				}
 			}
-			else if (SONG.song.toLowerCase() != 'disability')
+			else if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
 				spr.centerOffsets();
 			else
 				spr.smartCenterOffsets();
@@ -5766,7 +5746,7 @@ class PlayState extends MusicBeatState
 						spr.animation.finishCallback = function(name:String)
 						{
 							spr.animation.play('static',true);
-							if (SONG.song.toLowerCase() != 'disability')
+							if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
 								spr.centerOffsets();
 						}
 					}
@@ -6444,7 +6424,7 @@ class PlayState extends MusicBeatState
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 						dad.visible = true;
 				}
-			case 'algebra':
+			case 'algebra' | 'algebra-(legacy-mix)':
 				switch(curBeat)
 				{
 					case 160:

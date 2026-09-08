@@ -61,10 +61,10 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			switch (PlayState.SONG.song.toLowerCase())
 			{
-				case 'algebra':
+				case 'algebra' | 'algebra-(legacy-mix)':
 					FlxG.sound.playMusic(Paths.music('DaveDialogue'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
-				case 'disability':
+				case 'disability' | 'frustration-(c3po-mix)':
 					FlxG.sound.playMusic(Paths.music('disabilityDialogue'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
 				case 'wireframe':
@@ -96,7 +96,7 @@ class DialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'applecore' | 'disability' | 'algebra':
+			case 'applecore' | 'disability' | 'algebra' | 'algebra-(legacy-mix)':
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('speech_bubble_talking');
 				box.scrollFactor.set();
@@ -129,7 +129,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'disability' | 'algebra' | 'wireframe' | 'future':
+			case 'disability' | 'algebra' | 'algebra-(legacy-mix)' | 'wireframe' | 'future':
 				portraitLeftCharacter = 'dave';
 			case 'disruption' | 'applecore':
 				portraitLeftCharacter = 'bambi';
@@ -344,7 +344,7 @@ class DialogueBox extends FlxSpriteGroup
 					case 'wireframe':
 						portrait.portraitPath = 'dialogue/3d_dave_wireframe_portrait';
 						portrait.portraitPrefix = 'dave 3d wireframe portrait';
-					case 'algebra':
+					case 'algebra' | 'algebra-(legacy-mix)':
 						portrait.portraitPath = 'dialogue/3d_dave_og_portrait';
 						portrait.portraitPrefix = 'dave 3d algebra portrait';
 					default:
