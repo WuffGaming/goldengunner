@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="Ticking Guy.png">
+<SubTexture name="Ticking Guy idle0000" x="1450" y="0" width="549" height="591" frameX="-189" frameY="-252" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0001" x="913" y="1311" width="505" height="583" frameX="-198" frameY="-220" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0002" x="498" y="1896" width="503" height="579" frameX="-197" frameY="-207" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0003" x="1418" y="1311" width="501" height="581" frameX="-195" frameY="-200" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0004" x="1999" y="0" width="495" height="581" frameX="-198" frameY="-199" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0005" x="1999" y="581" width="495" height="578" frameX="-199" frameY="-202" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0006" x="1001" y="1896" width="498" height="579" frameX="-196" frameY="-198" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0007" x="0" y="1896" width="498" height="581" frameX="-196" frameY="-199" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy idle0008" x="0" y="1311" width="498" height="585" frameX="-196" frameY="-198" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy down0000" x="511" y="3034" width="459" height="492" frameX="-284" frameY="-407" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy down0001" x="1629" y="2477" width="498" height="542" frameX="-245" frameY="-320" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy down0002" x="1108" y="2477" width="521" height="553" frameX="-234" frameY="-284" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy down0003" x="0" y="2477" width="528" height="557" frameX="-226" frameY="-270" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy down0004" x="2494" y="1131" width="515" height="564" frameX="-229" frameY="-255" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy down0005" x="2494" y="1695" width="501" height="560" frameX="-212" frameY="-221" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy left0000" x="1999" y="1159" width="398" height="578" frameX="-37" frameY="-229" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy left0001" x="1004" y="706" width="398" height="593" frameX="-105" frameY="-212" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy left0002" x="0" y="706" width="392" height="605" frameX="-139" frameY="-202" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy left0003" x="689" y="0" width="388" height="609" frameX="-150" frameY="-197" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy left0004" x="1077" y="0" width="373" height="607" frameX="-164" frameY="-195" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy left0005" x="1450" y="591" width="416" height="589" frameX="-186" frameY="-198" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy right0000" x="0" y="3034" width="511" height="501" frameX="-391" frameY="-199" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy right0001" x="3087" y="0" width="457" height="523" frameX="-382" frameY="-206" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy right0002" x="2564" y="2477" width="443" height="528" frameX="-379" frameY="-210" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy right0003" x="2127" y="2477" width="437" height="529" frameX="-377" frameY="-211" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy right0004" x="2017" y="1896" width="418" height="543" frameX="-381" frameY="-210" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy right0005" x="498" y="1311" width="415" height="585" frameX="-323" frameY="-200" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy up0000" x="0" y="0" width="689" height="706" frameX="-103" frameY="-47" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy up0001" x="392" y="706" width="612" height="598" frameX="-143" frameY="-154" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy up0002" x="2494" y="0" width="593" height="566" frameX="-152" frameY="-185" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy up0003" x="528" y="2477" width="580" height="556" frameX="-159" frameY="-194" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy up0004" x="2494" y="566" width="558" height="565" frameX="-171" frameY="-198" frameWidth="902" frameHeight="956" />
+<SubTexture name="Ticking Guy up0005" x="1499" y="1896" width="518" height="574" frameX="-190" frameY="-202" frameWidth="902" frameHeight="956" />
+</TextureAtlas>

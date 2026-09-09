@@ -71,6 +71,7 @@ class HealthIcon extends FlxSprite
 		'cellangry',
 		'lullabandu',
 		'ouch',
+		'owie',
 		'corrupt',
 		'blogblez',
 		'bormp',

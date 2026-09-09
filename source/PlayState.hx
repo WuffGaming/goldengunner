@@ -127,6 +127,7 @@ class PlayState extends MusicBeatState
 	var floaty:Float = 0;
 	var tailscircle:String = '';
 	var ezTrail:FlxTrail;
+	var tickingTrail:FlxTrail;
 	var bgspec:FlxSprite;
 
 	var talk:FlxSprite;
@@ -164,7 +165,7 @@ class PlayState extends MusicBeatState
 
 	var focusOnDadGlobal:Bool = true;
 
-	var funnyFloatyBoys:Array<String> = ['dave-angey', 'bambi-3d', 'dave-annoyed-3d', 'dave-3d-standing-bruh-what', 'bambi-unfair', 'bambi-piss-3d', 'bandu', 'bandu-sad', 'unfair-junker', 'split-dave-3d', 'badai', 'tunnel-dave', 'tunnel-bf', 'tunnel-bf-flipped', 'bandu-candy', 'bandu-origin', 'ringi', 'bambom', 'bendu', 'gary', 'batai', 'boxer', '144p', 'insanidave', 'hover-dude', 'bandu-card', 'bad', 'among', 'brob', 'barbu', '3d-tristan', 'dambai', 'dambu'];
+	var funnyFloatyBoys:Array<String> = ['ticking-new', 'dave-angey', 'bambi-3d', 'dave-annoyed-3d', 'dave-3d-standing-bruh-what', 'bambi-unfair', 'bambi-piss-3d', 'bandu', 'bandu-sad', 'unfair-junker', 'split-dave-3d', 'badai', 'tunnel-dave', 'tunnel-bf', 'tunnel-bf-flipped', 'bandu-candy', 'bandu-origin', 'ringi', 'bambom', 'bendu', 'gary', 'batai', 'boxer', '144p', 'insanidave', 'hover-dude', 'bandu-card', 'bad', 'among', 'brob', 'barbu', '3d-tristan', 'dambai', 'dambu'];
 
 	var storyDifficultyText:String = "";
 	var iconRPC:String = "";
@@ -340,6 +341,7 @@ class PlayState extends MusicBeatState
 	var timeTxt:FlxText;
 
 	public var redTunnel:FlxSprite;
+	public var tunney:FlxSprite;
 
 	public var daveFuckingDies:PissBoy;
 
@@ -486,18 +488,17 @@ class PlayState extends MusicBeatState
 			case 'algebra':
 				dialogue = CoolUtil.coolTextFile(Paths.txt('algebra/algebraDialogue'));
 		}
-
-		backgroundSprites = createBackgroundSprites(SONG.song.toLowerCase());
-		if (SONG.song.toLowerCase() == 'polygonized' || SONG.song.toLowerCase() == 'furiosity')
-		{
-			normalDaveBG = createBackgroundSprites('glitch');
-			for (bgSprite in normalDaveBG)
-			{
-				bgSprite.alpha = 0;
+		// fix a crash
+		if (backgroundSprites != null) {
+			for (sprite in backgroundSprites) {
+				remove(sprite, true);
+				sprite.destroy();
 			}
 		}
+		backgroundSprites = createBackgroundSprites(SONG.song.toLowerCase());
 		if (SONG.song.toLowerCase() == 'applecore-(short-mix)')
 			dad = new Character(100, 100, SONG.player2);
+
 		var gfVersion:String = 'gf';
 
 		screenshader.waveAmplitude = 1;
@@ -778,6 +779,13 @@ class PlayState extends MusicBeatState
 			add(dad);
 		add(boyfriend);
 		add(dadmirror);
+
+		// lets do some 1.5 crud
+		
+		if (dad.curCharacter == 'ticking-new') {
+			tickingTrail = new FlxTrail(dad, null, 3);
+			insert(members.indexOf(dad), tickingTrail);
+		}
 
 		if(SONG.song.toLowerCase() == 'applecore' || SONG.song.toLowerCase() == 'applecore-(short-mix)')
 		{
@@ -2209,7 +2217,7 @@ class PlayState extends MusicBeatState
 				var beeg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('ticking/gunkk'));
 				beeg.screenCenter();
 				add(beeg);
-				var tunney:FlxSprite = new FlxSprite();
+				tunney = new FlxSprite();
 				tunney.frames = Paths.getSparrowAtlas('ticking/ticking_tunnel');
 				tunney.animation.addByPrefix('idle', 'TUNNEL', 12, true, false, false);
 				tunney.animation.play('idle');
@@ -3524,6 +3532,9 @@ class PlayState extends MusicBeatState
 					dad.angle = Math.sin(elapsedtime) * 15;
 					dad.x += Math.sin(elapsedtime) * 0.6;
 					dad.y += (Math.sin(elapsedtime) * 0.6);
+				case 'ticking-new':
+					dad.y += (Math.cos(elapsedtime) * 0.15);
+					dad.x += (Math.sin(elapsedtime) * 0.25);
 				case 'ringi':
 					dad.y += (Math.sin(elapsedtime) * 0.6);
 					dad.x += (Math.sin(elapsedtime) * 0.6);
@@ -6424,6 +6435,42 @@ class PlayState extends MusicBeatState
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 						dad.visible = true;
 				}
+			case 'ticking-(1.5-teaser)':
+				switch(curBeat){
+					case 31:
+						thunderBlack.alpha = 1;
+					case 32:
+						thunderBlack.alpha = 0;
+						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
+						dad.color = FlxColor.YELLOW;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						tickingTrail.color = dad.color;
+					case 128:
+						dad.color = FlxColor.WHITE;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						tickingTrail.color = dad.color;
+					case 160:
+						dad.color = FlxColor.BLACK;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						tickingTrail.color = dad.color;
+					case 192:
+						dad.color = FlxColor.YELLOW;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						tickingTrail.color = dad.color;
+					case 208:
+						// placeholder add glitch effect hear
+					case 288:
+						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
+						dad.color = FlxColor.WHITE;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						remove(tickingTrail);
+						FlxTween.tween(dad, {alpha: 1}, 5, {ease: FlxEase.cubeOut});
+				}
 			case 'algebra' | 'algebra-(legacy-mix)':
 				switch(curBeat)
 				{
@@ -7278,6 +7325,9 @@ class PlayState extends MusicBeatState
 	function repositionDad() {
 		switch (dad.curCharacter)
 		{
+			case 'ticking-new':
+				dad.x -= 230;
+				dad.y -= 20;
 			case 'cynda':
 				dad.y += 75;
 			case 'awesome-son':

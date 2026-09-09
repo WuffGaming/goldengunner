@@ -2827,6 +2827,31 @@ class Character extends FlxSprite
 				iconRPC = 'icon_ouch';
 
 				playAnim('idle');
+			case 'ticking-new':
+				frames = Paths.getSparrowAtlas('characters/ticking_guy');
+				
+				animation.addByPrefix('idle', 'Ticking Guy idle', 12, false);
+				animation.addByPrefix('singUP', 'Ticking Guy up', 12, false);
+				animation.addByPrefix('singRIGHT', 'Ticking Guy right', 12, false);
+				animation.addByPrefix('singDOWN', 'Ticking Guy down', 12, false);
+				animation.addByPrefix('singLEFT', 'Ticking Guy left', 12, false);
+
+				addOffset('idle');
+				addOffset("singUP");
+				addOffset("singRIGHT");
+				addOffset("singLEFT");
+				addOffset("singDOWN");
+
+				setGraphicSize(Std.int(width / furiosityScale));
+				updateHitbox();
+
+				antialiasing = false;
+
+				iconName = 'owie';
+
+				iconRPC = 'icon_ouch';
+
+				playAnim('idle');
 			case 'bambi-good':
 				frames = Paths.getSparrowAtlas('characters/bambiShip');
 				animation.addByPrefix('idle', 'IDLE', 24, false);
