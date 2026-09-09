@@ -56,6 +56,8 @@ class ExtraSongState extends MusicBeatState
     ];
 
 	var logos:Array<FlxSprite> = [];
+
+	var songList:Array<String> = CoolUtil.coolTextFile(Paths.txt('songList'));
     
     private var grpSongs:FlxTypedGroup<Alphabet>;
 
@@ -81,19 +83,15 @@ class ExtraSongState extends MusicBeatState
 		bg.color = 0xFF4965FF;
 		add(bg);
 
-		addSong('Apprentice-(Beta-Mix)', 0, 'tristan');
-		addSong('RECOVERED-PROJECT-(Ingame-Version)', 6, 'recovered');
-		addSong('Cuberoot-(Alpha-Mix)', 1, 'disability');
-		addSong('Ferocious-(Short-Mix)', 5, 'garrett-animal');
-		addSong('AppleCore-(Short-Mix)', 0, 'unfair');
-		addSong('Cheating-Not-Cute', 2, 'dab');
-		addSong('OG-(Original-Draft)', 6, 'prealpha');
-		addSong('Algebra-(Pre-Release-Teaser)', 1, 'og-dave');
-		addSong('Dave-x-Bambi-Shipping-Cute-(Removed-Version)', 2, 'dab');
-		addSong('Frustration-(C3PO-Mix)', 1, 'disability');
-		addSong('Algebra-(Legacy-Mix)', 1, 'og-dave');
-		addSong('Ticking-(1.5-Teaser)', 6, 'ouch');
-		//addSong('', , '');
+		for (i in 0...songList.length)
+		{
+			var theSong = songList[i].split(":");
+			var song = theSong[0];
+			var theColor = Std.parseInt(theSong[1]);
+			var theIcon = theSong[2];
+
+			addSong(song, theColor, theIcon);
+		}
 
         grpSongs = new FlxTypedGroup<Alphabet>();
 		add(grpSongs);

@@ -2216,7 +2216,7 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
 			case 'ticking' | 'ticking-(1.5-teaser)':
-				defaultCamZoom = 0.75;
+				defaultCamZoom = SONG.song.toLowerCase() == 'ticking-(1.5-teaser)' ? 1 : 0.75;
 				curStage = 'ticking';
 				var beeg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('ticking/gunkk'));
 				beeg.screenCenter();
@@ -2232,6 +2232,7 @@ class PlayState extends MusicBeatState
 				tunney.x += 200;
 				tunney.y -= 250;
 				tunney.scrollFactor.set(0.75, 0.75);
+				if (SONG.song.toLowerCase() == 'ticking-(1.5-teaser)') { camHUD.angle -= 1; }
 				add(tunney);
 			default:
 				defaultCamZoom = 0.9;
@@ -3228,6 +3229,9 @@ class PlayState extends MusicBeatState
 				var shad = cast(curbg.shader, Shaders.GlitchShader);
 				shad.uTime.value[0] += elapsed;
 			}
+		}
+		if (SONG.song.toLowerCase() == 'ticking-(1.5-teaser)') {
+			camHUD.angle += Math.sin(elapsedtime) * 0.005;
 		}
 
 		if(playerStrums.members[0] != null && dadStrums.members[0] != null)
@@ -6476,7 +6480,6 @@ class PlayState extends MusicBeatState
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
 						remove(tickingTrail);
-						FlxTween.tween(dad, {alpha: 1}, 5, {ease: FlxEase.cubeOut});
 				}
 			case 'algebra' | 'algebra-(legacy-mix)':
 				switch(curBeat)
