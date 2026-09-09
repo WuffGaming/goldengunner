@@ -9,6 +9,8 @@ import openfl.net.FileFilter;
 import openfl.filters.BitmapFilter;
 import Shaders.PulseEffect;
 import Section.SwagSection;
+import Shaders.InvertShader;
+import AdjustColorShader;
 import Song.SwagSong;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
@@ -113,6 +115,8 @@ class PlayState extends MusicBeatState
 	public var garrettStand:Character;
 	public var hallMonitorStand:Character;
 	public var playRobotStand:Character;
+
+	var colorShader:AdjustColorShader = new AdjustColorShader();
 
 	public var standersGroup:FlxTypedGroup<FlxSprite>;
 
@@ -6440,22 +6444,25 @@ class PlayState extends MusicBeatState
 					case 31:
 						thunderBlack.alpha = 1;
 					case 32:
+						camGame.filters.push(new ShaderFilter(new Shaders.InvertShader()));
 						thunderBlack.alpha = 0;
-						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
+						colorShader.contrast = 1000;
 						dad.color = FlxColor.YELLOW;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
 						tickingTrail.color = dad.color;
+						dad.shader = colorShader;
+						tickingTrail.shader = dad.shader;
+						tunney.shader = dad.shader;
+						iconP2.shader = dad.shader;
+						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 					case 128:
 						dad.color = FlxColor.WHITE;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
 						tickingTrail.color = dad.color;
 					case 160:
-						dad.color = FlxColor.BLACK;
-						iconP2.color = dad.color;
-						tunney.color = dad.color;
-						tickingTrail.color = dad.color;
+						// somehow invert the color here
 					case 192:
 						dad.color = FlxColor.YELLOW;
 						iconP2.color = dad.color;
@@ -6465,6 +6472,7 @@ class PlayState extends MusicBeatState
 						// placeholder add glitch effect hear
 					case 288:
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
+						colorShader.contrast = 0;
 						dad.color = FlxColor.WHITE;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
