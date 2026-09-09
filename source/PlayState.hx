@@ -6444,7 +6444,6 @@ class PlayState extends MusicBeatState
 					case 31:
 						thunderBlack.alpha = 1;
 					case 32:
-						camGame.filters.push(new ShaderFilter(new Shaders.InvertShader()));
 						thunderBlack.alpha = 0;
 						colorShader.contrast = 1000;
 						dad.color = FlxColor.YELLOW;
@@ -6452,9 +6451,9 @@ class PlayState extends MusicBeatState
 						tunney.color = dad.color;
 						tickingTrail.color = dad.color;
 						dad.shader = colorShader;
-						tickingTrail.shader = dad.shader;
-						tunney.shader = dad.shader;
-						iconP2.shader = dad.shader;
+						tickingTrail.shader = colorShader;
+						tunney.shader = colorShader;
+						iconP2.shader = colorShader;
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 					case 128:
 						dad.color = FlxColor.WHITE;
