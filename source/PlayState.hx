@@ -346,6 +346,7 @@ class PlayState extends MusicBeatState
 
 	public var redTunnel:FlxSprite;
 	public var tunney:FlxSprite;
+	public var beeg:FlxSprite;
 
 	public var daveFuckingDies:PissBoy;
 
@@ -2218,7 +2219,7 @@ class PlayState extends MusicBeatState
 			case 'ticking' | 'ticking-(1.5-teaser)':
 				defaultCamZoom = SONG.song.toLowerCase() == 'ticking-(1.5-teaser)' ? 1 : 0.75;
 				curStage = 'ticking';
-				var beeg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('ticking/gunkk'));
+				beeg = new FlxSprite().loadGraphic(Paths.image('ticking/gunkk'));
 				beeg.screenCenter();
 				add(beeg);
 				tunney = new FlxSprite();
@@ -2270,7 +2271,6 @@ class PlayState extends MusicBeatState
 
 	var flumpteez:FlxSprite;
 	var flumpteezTwo:FlxSprite;
-	var beeg:FlxSprite;
 
 	var facecamBg:FlxSprite;
 
@@ -6453,16 +6453,19 @@ class PlayState extends MusicBeatState
 						dad.color = FlxColor.YELLOW;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
+						beeg.color = dad.color;
 						tickingTrail.color = dad.color;
 						dad.shader = colorShader;
 						tickingTrail.shader = colorShader;
 						tunney.shader = colorShader;
+						beeg.shader = colorShader;
 						iconP2.shader = colorShader;
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 					case 128:
 						dad.color = FlxColor.WHITE;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
+						beeg.color = dad.color;
 						tickingTrail.color = dad.color;
 					case 160:
 						colorShader.invert = true;
@@ -6471,6 +6474,7 @@ class PlayState extends MusicBeatState
 						dad.color = FlxColor.YELLOW;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
+						beeg.color = dad.color;
 						tickingTrail.color = dad.color;
 					case 208:
 						// placeholder add glitch effect hear
@@ -6480,6 +6484,7 @@ class PlayState extends MusicBeatState
 						dad.color = FlxColor.WHITE;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
+						beeg.color = dad.color;
 						remove(tickingTrail);
 				}
 			case 'algebra' | 'algebra-(legacy-mix)':
