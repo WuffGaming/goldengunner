@@ -72,6 +72,7 @@ class ExtraSongState extends MusicBeatState
 		if (!FlxG.sound.music.playing)
 		{
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			Conductor.changeBPM(150);
 		}
 
 		swagText.antialiasing = true;

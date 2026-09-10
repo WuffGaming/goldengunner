@@ -6469,6 +6469,9 @@ class PlayState extends MusicBeatState
 						tickingTrail.color = dad.color;
 					case 160:
 						colorShader.invert = true;
+						tickingTrail.color = FlxColor.BLACK;
+						beeg.color = FlxColor.BLACK; // video does this so i have to do it!
+						beeg.scale.set(5,5);
 					case 192:
 						colorShader.invert = false;
 						dad.color = FlxColor.YELLOW;
@@ -6476,6 +6479,7 @@ class PlayState extends MusicBeatState
 						tunney.color = dad.color;
 						beeg.color = dad.color;
 						tickingTrail.color = dad.color;
+						beeg.scale.set(1,1);
 					case 208:
 						// placeholder add glitch effect hear
 					case 288:
