@@ -9,6 +9,7 @@ uniform float hue;
 uniform float saturation;
 uniform float brightness;
 uniform float contrast;
+uniform bool invert;
 
 const vec3 grayscaleValues = vec3(0.3098039215686275, 0.607843137254902, 0.0823529411764706);
 const float e = 2.718281828459045;
@@ -62,11 +63,24 @@ void main(){
 	vec4 textureColor = flixel_texture2D(bitmap, openfl_TextureCoordv);
 
 	// Un-multiply alpha if the texture is premultiplied
-  // Lime premultiplies alphas before sending it to render, so we want to accomodate header. This fixes some antialiased edges appearing darker
-  vec3 unpremultipliedColor = textureColor.a > 0.0 ? textureColor.rgb / textureColor.a : textureColor.rgb;
+    // Lime premultiplies alphas before sending it to render, so we want to accomodate header. This fixes some antialiased edges appearing darker
+    vec3 unpremultipliedColor = textureColor.a > 0.0 ? textureColor.rgb / textureColor.a : textureColor.rgb;
 
 	// Apply effects to the unpremultiplied color
 	vec3 outColor = applyHSBCEffect(unpremultipliedColor);
 
-	gl_FragColor = vec4(outColor * textureColor.a, textureColor.a);
+	vec4 moreShitColor = vec4(outColor * textureColor.a, textureColor.a);
+
+	// combining the invert color shader and this shader
+	if(invert) {
+		if (moreShitColor.a == 1.0) {
+			moreShitColor.r = 1.0 - moreShitColor.r;
+			moreShitColor.g = 1.0 - moreShitColor.g;
+			moreShitColor.b = 1.0 - moreShitColor.b;
+		} else if (moreShitColor.a > 0.0) {
+			// TODO: Figure out why alpha is set to 1.0 when other color channels are set.
+		}
+	}
+
+	gl_FragColor = moreShitColor;
 }

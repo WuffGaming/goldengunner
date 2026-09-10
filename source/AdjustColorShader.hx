@@ -10,6 +10,7 @@ import flixel.math.FlxAngle;
  *
  * Adapted from Andrey-Postelzhuks shader found here: https://forum.unity.com/threads/hue-saturation-brightness-contrast-shader.260649/
  * Hue rotation stuff is from here: https://www.w3.org/TR/filter-effects/#feColorMatrixElement
+ * Modified for inversion stuff
  */
 class AdjustColorShader extends FlxRuntimeShader
 {
@@ -81,6 +82,15 @@ class AdjustColorShader extends FlxRuntimeShader
     return val;
   }
 
+  public var invert(default, set):Bool = false;
+
+  function set_invert(val:Bool):Bool
+  {
+	this.setBool('invert', val);
+
+    return val;
+  }
+
   var hueMatrix:Array<Float>;
   var saturationMatrix:Array<Float>;
 
@@ -95,15 +105,6 @@ class AdjustColorShader extends FlxRuntimeShader
 
   function updateFinalMatrix():Void
   {
-    if (hueMatrix != null)
-    {
-      this.setFloatArray('hueMatrix', hueMatrix);
-    }
-
-    if (saturationMatrix != null)
-    {
-      this.setFloatArray('saturationMatrix', saturationMatrix);
-    }
   }
 
   function makeHueMatrix(h:Float):Array<Float>

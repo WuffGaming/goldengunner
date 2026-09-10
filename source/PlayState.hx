@@ -6465,8 +6465,9 @@ class PlayState extends MusicBeatState
 						tunney.color = dad.color;
 						tickingTrail.color = dad.color;
 					case 160:
-						// somehow invert the color here
+						colorShader.invert = true;
 					case 192:
+						colorShader.invert = false;
 						dad.color = FlxColor.YELLOW;
 						iconP2.color = dad.color;
 						tunney.color = dad.color;
