@@ -2013,7 +2013,7 @@ class PlayState extends MusicBeatState
 				pissStainDad.scale.set(0.75, 0.75);
 				pissStainDad.updateHitbox();
 				add(pissStainDad);
-			case 'disruption' | 'minus-disruption' | 'disability' | 'frustration-(c3po-mix)' | 'origin' | 'tantalum' | 'strawberry' | 'keyboard' | 'ugh' | 'jeez' | 'ripple' | 'galactic' | 'cuberoot' | 'cuberoot-(alpha-mix)':
+			case 'disruption' | 'minus-disruption' | 'disability' | '3po-jam' | 'origin' | 'tantalum' | 'strawberry' | 'keyboard' | 'ugh' | 'jeez' | 'ripple' | 'galactic' | 'cuberoot' | 'cuberoot-(alpha-mix)':
 				defaultCamZoom = 0.9;
 				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('dave/redsky'));
 				bg.active = true;
@@ -2041,7 +2041,7 @@ class PlayState extends MusicBeatState
 						gfSpeed = 2;
 						bg.loadGraphic(Paths.image('dave/rippler'));
 						curStage = 'disrupt';
-					case 'disability' | 'frustration-(c3po-mix)':
+					case 'disability' | '3po-jam':
 						bg.loadGraphic(Paths.image('dave/disabled'));
 						curStage = 'disabled';
 					case 'cuberoot' | 'cuberoot-(alpha-mix)':
@@ -3646,7 +3646,7 @@ class PlayState extends MusicBeatState
 			
 		}
 
-		if(SONG.song.toLowerCase() == 'disability' || SONG.song.toLowerCase() == 'frustration-(c3po-mix)')
+		if(SONG.song.toLowerCase() == 'disability' || SONG.song.toLowerCase() == '3po-jam')
 		{
 			playerStrums.forEach(function(spr:Strum)
 			{
@@ -4261,7 +4261,7 @@ class PlayState extends MusicBeatState
 								if (Math.abs(Math.round(Math.abs(daNote.noteData)) % 4) == sprite.ID)
 								{
 									sprite.animation.play('confirm', true);
-									if (sprite.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)'))
+									if (sprite.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != '3po-jam'))
 									{
 										if(!awesomeChars.contains(dad.curCharacter))
 										{
@@ -4270,14 +4270,14 @@ class PlayState extends MusicBeatState
 											sprite.offset.y -= 13;
 										}
 									}
-									else if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
+									else if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != '3po-jam')
 									{
 										sprite.centerOffsets();
 									}
 									sprite.animation.finishCallback = function(name:String)
 									{
 										sprite.animation.play('static',true);
-										if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
+										if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != '3po-jam')
 											sprite.centerOffsets();
 									}
 		
@@ -5267,7 +5267,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-			if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)'))
+			if (spr.animation.curAnim.name == 'confirm' && !curStage.startsWith('school') && !funnyPart && (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != '3po-jam'))
 			{
 				if(!awesomeChars.contains(dad.curCharacter))
 				{
@@ -5276,7 +5276,7 @@ class PlayState extends MusicBeatState
 					spr.offset.y -= 13;
 				}
 			}
-			else if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
+			else if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != '3po-jam')
 				spr.centerOffsets();
 			else
 				spr.smartCenterOffsets();
@@ -5765,7 +5765,7 @@ class PlayState extends MusicBeatState
 						spr.animation.finishCallback = function(name:String)
 						{
 							spr.animation.play('static',true);
-							if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != 'frustration-(c3po-mix)')
+							if (SONG.song.toLowerCase() != 'disability' || SONG.song.toLowerCase() != '3po-jam')
 								spr.centerOffsets();
 						}
 					}

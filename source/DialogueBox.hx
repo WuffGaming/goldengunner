@@ -64,7 +64,7 @@ class DialogueBox extends FlxSpriteGroup
 				case 'algebra' | 'algebra-(legacy-mix)':
 					FlxG.sound.playMusic(Paths.music('DaveDialogue'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
-				case 'disability' | 'frustration-(c3po-mix)':
+				case 'disability' | '3po-jam':
 					FlxG.sound.playMusic(Paths.music('disabilityDialogue'), 0);
 					FlxG.sound.music.fadeIn(1, 0, 0.8);
 				case 'wireframe':

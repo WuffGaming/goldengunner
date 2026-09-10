@@ -24,7 +24,7 @@ class CreditPopup extends FlxSpriteGroup
         funnyText.setFormat('Comic Sans MS Bold', 32, FlxColor.BLACK, LEFT);
         switch(songy.toLowerCase())
         {
-            case 'disruption' | 'minus-disruption' | 'applecore' | 'applecore-(short-mix)' | 'disability' | 'frustration-(c3po-mix)' | 'algebra' | 'future' | 'nice' | 'resumed' | 'sugar-rush' | 'recovered-project' | 'recovered-project-(ingame-version)' 
+            case 'disruption' | 'minus-disruption' | 'applecore' | 'applecore-(short-mix)' | 'disability' | '3po-jam' | 'algebra' | 'future' | 'nice' | 'resumed' | 'sugar-rush' | 'recovered-project' | 'recovered-project-(ingame-version)' 
             | 'dave-x-bambi-shipping-cute' | 'bookworm' | 'the-big-dingle' | 'dave-x-bambi-shipping-cute-(removed-version)' | 'algebra-(pre-release-teaser)':
                 funnyText.text = 'Song by Grantare';
             case 'ferocious' | 'ferocious-(short-mix)':
