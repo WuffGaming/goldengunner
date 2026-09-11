@@ -5799,6 +5799,65 @@ class PlayState extends MusicBeatState
 						dumberStupid.cameras = [camHUD];
 						FlxTween.tween(dumberStupid, {alpha: 1}, 0.5); // loool
 				}
+			case 'ticking-(1.5-teaser)':
+				switch(curStep) {
+					case 124:
+						thunderBlack.alpha = 1;
+					case 128:
+						thunderBlack.alpha = 0;
+						colorShader.contrast = 1000;
+						dad.color = FlxColor.YELLOW;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						beeg.color = dad.color;
+						tickingTrail.color = dad.color;
+						dad.shader = colorShader;
+						tickingTrail.shader = colorShader;
+						tunney.shader = colorShader;
+						beeg.shader = colorShader;
+						iconP2.shader = colorShader;
+						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
+					case 460, 512, 1100:
+						dad.color = FlxColor.WHITE;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						beeg.color = dad.color;
+						tickingTrail.color = dad.color;
+						if (curStep != 512) {
+							camMoveAllowed = false;
+							snapCamFollowToPos(dad.getGraphicMidpoint().x,dad.getGraphicMidpoint().y);
+						}
+					case 462, 640, 1102:
+						colorShader.invert = true;
+						tickingTrail.color = FlxColor.BLACK;
+						beeg.color = FlxColor.BLACK; // video does this so i have to do it!
+						beeg.scale.set(5,5);
+					case 464, 768, 1104:
+						colorShader.invert = false;
+						dad.color = FlxColor.YELLOW;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						beeg.color = dad.color;
+						tickingTrail.color = dad.color;
+						beeg.scale.set(1,1);
+						if (curStep != 768) {
+							snapCamFollowToPos(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
+							camMoveAllowed = true;
+						}
+					case 832:
+						// placeholder add glitch effect hear
+					case 1152:
+						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
+						colorShader.contrast = 0;
+						dad.color = FlxColor.WHITE;
+						iconP2.color = dad.color;
+						tunney.color = dad.color;
+						beeg.color = dad.color;
+						remove(tickingTrail);
+						camMoveAllowed = false;
+						snapCamFollowToPos(dad.getGraphicMidpoint().x,dad.getGraphicMidpoint().y);
+						FlxTween.tween(dad, {"scale.x": 0.1, "scale.y": 0.1, angle: 140, alpha: 0}, 5, {ease: FlxEase.quadIn});
+				}
 		}
 
 		if(SONG.song.toLowerCase() == 'deformation')
@@ -6442,54 +6501,6 @@ class PlayState extends MusicBeatState
 						littleGuy.visible = false;
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 						dad.visible = true;
-				}
-			case 'ticking-(1.5-teaser)':
-				switch(curBeat){
-					case 31:
-						thunderBlack.alpha = 1;
-					case 32:
-						thunderBlack.alpha = 0;
-						colorShader.contrast = 1000;
-						dad.color = FlxColor.YELLOW;
-						iconP2.color = dad.color;
-						tunney.color = dad.color;
-						beeg.color = dad.color;
-						tickingTrail.color = dad.color;
-						dad.shader = colorShader;
-						tickingTrail.shader = colorShader;
-						tunney.shader = colorShader;
-						beeg.shader = colorShader;
-						iconP2.shader = colorShader;
-						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
-					case 128:
-						dad.color = FlxColor.WHITE;
-						iconP2.color = dad.color;
-						tunney.color = dad.color;
-						beeg.color = dad.color;
-						tickingTrail.color = dad.color;
-					case 160:
-						colorShader.invert = true;
-						tickingTrail.color = FlxColor.BLACK;
-						beeg.color = FlxColor.BLACK; // video does this so i have to do it!
-						beeg.scale.set(5,5);
-					case 192:
-						colorShader.invert = false;
-						dad.color = FlxColor.YELLOW;
-						iconP2.color = dad.color;
-						tunney.color = dad.color;
-						beeg.color = dad.color;
-						tickingTrail.color = dad.color;
-						beeg.scale.set(1,1);
-					case 208:
-						// placeholder add glitch effect hear
-					case 288:
-						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
-						colorShader.contrast = 0;
-						dad.color = FlxColor.WHITE;
-						iconP2.color = dad.color;
-						tunney.color = dad.color;
-						beeg.color = dad.color;
-						remove(tickingTrail);
 				}
 			case 'algebra' | 'algebra-(legacy-mix)':
 				switch(curBeat)
