@@ -137,9 +137,12 @@ class HealthIcon extends FlxSprite
 	{
 		super.update(elapsed);
 
-		offset.set(Std.int(FlxMath.bound(width - 150, 0)), Std.int(FlxMath.bound(height - 150, 0)));
+		var xOffsetPenis:Float = 0;
+		var yOffsetPenis:Float = 0;
 
 		if (sprTracker != null)
 			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
+
+		offset.set(Std.int(FlxMath.bound(width - (150 * scale.x),0)) + xOffsetPenis,Std.int(FlxMath.bound(height - (150 * scale.y),0)) + yOffsetPenis);
 	}
 }

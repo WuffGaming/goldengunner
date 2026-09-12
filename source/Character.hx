@@ -45,10 +45,21 @@ class Character extends FlxSprite
 		curCharacter = character;
 		this.isPlayer = isPlayer;
 
-		var tex:FlxAtlasFrames;
 		antialiasing = true;
 
-		switch (curCharacter)
+		loadCharacter(curCharacter);
+
+		dance();
+
+		if(isPlayer)
+		{
+			flipX = !flipX;
+		}
+	}
+
+	public function loadCharacter(char) {
+		var tex:FlxAtlasFrames;
+		switch (char)
 		{
 			case 'chipper':
 				tex = Paths.getSparrowAtlas('characters/chipper');
@@ -3091,12 +3102,8 @@ class Character extends FlxSprite
 				nativelyPlayable = true;
 
 				iconName = 'bf';
-		}
-		dance();
-
-		if(isPlayer)
-		{
-			flipX = !flipX;
+			default:
+				loadCharacter('bf');
 		}
 	}
 
