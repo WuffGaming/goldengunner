@@ -13,14 +13,12 @@ typedef IconData =
 
 	var antialiasing:Null<Bool>;
 
-	var awesome:Null<Bool>;
-
 	var flip:Null<Bool>;
 
 	var animations:Array<IconAnimationData>;
 }
 
-typedef IconAnimationData = // taken from gapple:e
+typedef IconAnimationData = // taken from character.hx
 {
 	var name:String; // Name of animation. Should be something like "Normal" or "Losing"
 	var prefix:String; // Name of animation in XML
@@ -42,13 +40,14 @@ typedef IconAnimationData = // taken from gapple:e
 
 class HealthIcon extends FlxSprite
 {
+	/**
+	 * Used to represent character icons & the color on the healthbar.
+	 */
+	public var sprTracker:FlxSprite;
+
 	public var isPlayer:Bool = false;
 
 	public var charPublic:String = 'bf';
-	/**
-	 * Used for FreeplayState! If you use it elsewhere, prob gonna annoying
-	 */
-	public var sprTracker:FlxSprite;
 
 	public var animatedIcon:Bool = false;
 
@@ -69,29 +68,14 @@ class HealthIcon extends FlxSprite
 		scrollFactor.set();
 	}
 
-	function addIcon(char:String, startFrame:Int, singleIcon:Bool = false, flipOpposite:Bool = false)
+	function addIcon(char:String, startFrame:Int, singleIcon:Bool = false, flip:Bool = false)
 	{
-		var flip:Bool = isPlayer;
-		if(flipOpposite){flip = !flip;};
-		animation.add(char, !singleIcon ? [startFrame, startFrame + 1] : [startFrame], 0, false, flip);
-	}
-
-	function addAwesomeIcon(char:String, startFrame:Int, singleIcon:Bool = false, flipOpposite:Bool = false)
-	{
-		var flip:Bool = isPlayer;
-		if(flipOpposite){flip = !flip;};
-		if(char == 'awesomePlayer')
-		{
-			animation.add(char, [5, 1, 3], 0, false, !isPlayer);
-		}
-		else
-		{
-			animation.add(char, [4, 0, 2], 0, false, isPlayer);
-		}
+		animation.add(char, !singleIcon ? [startFrame, startFrame + 1] : [startFrame], 0, false, flip ? !isPlayer : isPlayer);
 	}
 
 	public function changeIcon(char:String = 'face')
 	{
+		var iconPath = 'icons/';
 		charPublic = char;
 
 		if (Assets.exists(Paths.jsonImg('icons/${char}')))
@@ -101,20 +85,19 @@ class HealthIcon extends FlxSprite
 			var size:Int = data.size == null ? 150 : data.size;
 			var solo:Bool = data.solo == null ? false : data.solo;
 			var anti:Bool = data.antialiasing == null ? true : data.antialiasing;
-			var awesome:Bool = data.awesome == null ? false : data.awesome;
 			var flip:Bool = data.flip == null ? false : data.flip;
-
-			if (anti != true)
-				antialiasing = false;
+			iconScale = data.scale == null ? [1, 1] : [data.scale[0], data.scale[1]];
 
 			if (solo == true)
 				singleIcon = true;
-			
+
+			antialiasing = anti;
+
 			if (data.animations != null)
 			{
 				trace('${char} is an animated icon! Wow!');
 				animatedIcon = true;
-				frames = Paths.getSparrowAtlas('icons/${char}');
+				frames = Paths.getSparrowAtlas(iconPath + char);
 				for (anim in data.animations)
 				{
 					var frameRate = anim.frameRate == null ? 24 : anim.frameRate;
@@ -133,32 +116,30 @@ class HealthIcon extends FlxSprite
 			}
 			else
 			{
-				loadGraphic(Paths.image('icons/${char}'), true, size, size);
-				if (awesome)
-					addAwesomeIcon(char, 0, solo, flip);
-				else
-					addIcon(char, 0, solo, flip);
+				loadGraphic(Paths.image(iconPath + char), true, size, size);
+				addIcon(char, 0, solo, flip);
 			}
 		}
 		else
 		{
-			loadGraphic(Paths.image('icons/${char}'), true, 150, 150);
+			loadGraphic(Paths.image(iconPath + char), true, 150, 150);
 
 			addIcon(char, 0);
 		}
+
 		setGraphicSize(width * iconScale[0], height * iconScale[1]);
+		updateHitbox();
+
+		animation.play(char);
 	}
 
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
 
-		var xOffsetPenis:Float = 0;
-		var yOffsetPenis:Float = 0;
+		offset.set(Std.int(FlxMath.bound(width - 150, 0)), Std.int(FlxMath.bound(height - 150, 0)));
 
 		if (sprTracker != null)
 			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
-
-		offset.set(Std.int(FlxMath.bound(width - (150 * scale.x),0)) + xOffsetPenis,Std.int(FlxMath.bound(height - (150 * scale.y),0)) + yOffsetPenis);
 	}
 }
