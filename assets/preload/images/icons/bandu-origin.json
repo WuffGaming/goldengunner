@@ -1,0 +1,10 @@
+{
+  "solo": true,
+  "antialiasing": false,
+  "animations": [
+    {
+        "name": "normal",
+        "prefix": "bandu-origin"
+    }
+  ]
+}

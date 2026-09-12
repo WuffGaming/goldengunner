@@ -3,102 +3,60 @@ package;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 
+typedef IconData =
+{
+	var size:Null<Int>;
+
+	var scale:Array<Float>;
+
+	var solo:Null<Bool>;
+
+	var antialiasing:Null<Bool>;
+
+	var awesome:Null<Bool>;
+
+	var flip:Null<Bool>;
+
+	var animations:Array<IconAnimationData>;
+}
+
+typedef IconAnimationData = // taken from gapple:e
+{
+	var name:String; // Name of animation. Should be something like "Normal" or "Losing"
+	var prefix:String; // Name of animation in XML
+
+	/**
+	 * Whether this animation is looped.
+	 * @default false
+	 */
+	var ?looped:Bool;
+
+	/**
+	 * The frame rate of this animation.
+	 * @default 24
+	 */
+	var ?frameRate:Int; // Framerate of this specific animation.
+
+	var ?frameIndices:Array<Int>; // If using indices, specify said indices. Plays full animation if null.
+}
+
 class HealthIcon extends FlxSprite
 {
+	public var isPlayer:Bool = false;
+
+	public var charPublic:String = 'bf';
 	/**
 	 * Used for FreeplayState! If you use it elsewhere, prob gonna annoying
 	 */
 	public var sprTracker:FlxSprite;
 
-	public var isPlayer:Bool = false;
+	public var animatedIcon:Bool = false;
 
-	
-	//LIST ICON NAME HERE NOT CHARACTER
-	public var noAaChars:Array<String> = [
-		'unfair',
-		'disrupt',
-		'bandu',
-		'junkers',
-		'decdave',
-		'disability',
-		'og-dave',
-		'garrett',
-		'badai',
-		'3d-bf',
-		'recovered',
-		'bandu-origin',
-		'sart-producer',
-		'bambom',
-		'ringi',
-		'bendu',
-		'wheels',
-		'gary',
-		'alge',
-		'bad',
-		'butch',
-		'dale',
-		'dingle',
-		'epic',
-		'brob',
-		'barbu',
-		'david',
-		'garrett-animal',
-		'playtime-2',
-		'paloose-men',
-		'wizard',
-		'do-you-accept',
-		'mr-music',
-		'epic',
-		'froing',
-		'action',
-		'future',
-		'smartass',
-		'doll',
-		'rippler',
-		'testicles',
-		'gunk',
-		'gross',
-		'bf-pixel',
-		'gotta',
-		'awesomePlayer',
-		'awesomeEnemy',
-		'do-you-accept-player',
-		'bambroot',
-		'shitter',
-		'dave-unchecked',
-		'cheaty',
-		'cell',
-		'cellangry',
-		'lullabandu',
-		'ouch',
-		'owie',
-		'corrupt',
-		'blogblez',
-		'bormp',
-		'sus',
-		'longbrob',
-		'zambi',
-		'awesome-son',
-		'badrum',
-		'3d-tristan',
-		'bambop',
-		'sammy',
-		'leak-gf',
-		'leak-wtf',
-		'leak-ringonal',
-		'leak-encrypted',
-		'bweasal',
-		'sillycon-min-removebg-preview',
-		'peashooter',
-		'dambai',
-		'dambu',
-		'donk',
-		'dingle-donk-duo',
-		'bf-pixel-white',
-		'chipper'
-	];
+	public var losing:Bool = false;
 
-	public var charPublic:String = 'bf';
+	public var singleIcon:Bool = false;
+
+	public var iconScale:Array<Float> = [1, 1];
 
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
@@ -136,45 +94,59 @@ class HealthIcon extends FlxSprite
 	{
 		charPublic = char;
 
-		if(char == 'awesomePlayer' || char == 'awesomeEnemy')
+		if (Assets.exists(Paths.jsonImg('icons/${char}')))
 		{
-			loadGraphic(Paths.image('icons/top-ten-awesome'), true, 150, 150);
-			addAwesomeIcon(char, 0, false, false);
-		}
-		else if(char != 'bandu-origin' && char != 'ohungi' && char != 'dave-unchecked')
-		{
-			loadGraphic(Paths.image('icons/' + char), true, 150, 150);
+			var jsonData:IconData = Paths.loadJSONImg('icons/${char}');
+			var data:IconData = cast jsonData;
+			var size:Int = data.size == null ? 150 : data.size;
+			var solo:Bool = data.solo == null ? false : data.solo;
+			var anti:Bool = data.antialiasing == null ? true : data.antialiasing;
+			var awesome:Bool = data.awesome == null ? false : data.awesome;
+			var flip:Bool = data.flip == null ? false : data.flip;
 
-			if(char == 'dale' || char == 'dingle' || char == 'froing' || char == 'testicles' || char == 'epic' || char == 'lullabandu' || char == 'do-you-accept-player')
+			if (anti != true)
+				antialiasing = false;
+
+			if (solo == true)
+				singleIcon = true;
+			
+			if (data.animations != null)
 			{
-				addIcon(char, 0, false, true);
+				trace('${char} is an animated icon! Wow!');
+				animatedIcon = true;
+				frames = Paths.getSparrowAtlas('icons/${char}');
+				for (anim in data.animations)
+				{
+					var frameRate = anim.frameRate == null ? 24 : anim.frameRate;
+					var looped = anim.looped == null ? false : anim.looped;
+
+					if (anim.frameIndices != null)
+					{
+						animation.addByIndices(anim.name, anim.prefix, anim.frameIndices, "", frameRate, looped, isPlayer);
+					}
+					else
+					{
+						animation.addByPrefix(anim.name, anim.prefix, frameRate, looped, isPlayer);
+					}
+				}
+				animation.play('normal', true);
 			}
 			else
 			{
-				addIcon(char, 0);
+				loadGraphic(Paths.image('icons/${char}'), true, size, size);
+				if (awesome)
+					addAwesomeIcon(char, 0, solo, flip);
+				else
+					addIcon(char, 0, solo, flip);
 			}
 		}
-		else if(char == 'bandu-origin')
-		{
-			frames = Paths.getSparrowAtlas('icons/bandu_origin_icon');
-			animation.addByPrefix(char, char, 24, false, isPlayer, false);
-		}
 		else
 		{
-			frames = Paths.getSparrowAtlas('icons/unchecked_icon');
-			animation.addByPrefix(char, char, 24, true, isPlayer, false);
-		}
+			loadGraphic(Paths.image('icons/${char}'), true, 150, 150);
 
-		antialiasing = !noAaChars.contains(char);
-
-		if(char == 'ohungi')
-		{
-			animation.play('good');
+			addIcon(char, 0);
 		}
-		else
-		{
-			animation.play(char);
-		}
+		setGraphicSize(width * iconScale[0], height * iconScale[1]);
 	}
 
 	override function update(elapsed:Float)

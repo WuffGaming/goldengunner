@@ -3879,50 +3879,31 @@ class PlayState extends MusicBeatState
 
 		iconP1.centerOffsets();
 		iconP2.centerOffsets();
-
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
-
 		var iconOffset:Int = 26;
 
 		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01) - iconOffset);
 		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (iconP2.width - iconOffset);
-
 		if (health > 2)
 			health = 2;
-		
-		if(healthBar.percent > 80)
+		// take a look at my spaghetti code
+		// also apparantly i need this or something? lol
+		if (iconP1.animatedIcon != true)
 		{
-			if(iconP2.charPublic != 'bandu-origin' && iconP2.charPublic != 'dave-unchecked')
-			{
-				iconP2.animation.curAnim.curFrame = 1;
-			}
-			if((iconP1.charPublic == 'awesomePlayer' || iconP1.charPublic == 'awesomeEnemy'))
-			{
-				iconP1.animation.curAnim.curFrame = 2;
-			}
+			healthBar.percent < 20 ? {iconP1.animation.curAnim.curFrame = 1; iconP1.losing = true;} : {iconP1.animation.curAnim.curFrame = 0; iconP1.losing = false;};
 		}
-		else if(healthBar.percent < 20)
+		if (iconP2.animatedIcon != true)
 		{
-			if(iconP1.charPublic != 'bandu-origin' && iconP1.charPublic != 'dave-unchecked')
-			{
-				iconP1.animation.curAnim.curFrame = 1;
-			}
-			if((iconP2.charPublic == 'awesomePlayer' || iconP2.charPublic == 'awesomeEnemy'))
-			{
-				iconP2.animation.curAnim.curFrame = 2;
-			}
+			healthBar.percent > 80 ? {iconP2.animation.curAnim.curFrame = 1; iconP2.losing = true;} : {iconP2.animation.curAnim.curFrame = 0; iconP2.losing = false;};
 		}
-		else
+		if (iconP1.animatedIcon == true)
 		{
-			if(iconP1.charPublic != 'bandu-origin' && iconP1.charPublic != 'dave-unchecked')
-			{
-				iconP1.animation.curAnim.curFrame = 0;
-			}
-			if(iconP2.charPublic != 'bandu-origin' && iconP2.charPublic != 'dave-unchecked')
-			{
-				iconP2.animation.curAnim.curFrame = 0;
-			}
+			healthBar.percent < 20 ? iconP1.losing = true : iconP1.losing = false;
+		}
+		if (iconP2.animatedIcon != true)
+		{
+			healthBar.percent > 80 ? iconP2.losing = true : iconP2.losing = false;
 		}
 
 		if (PlayState.SONG.song.toLowerCase() == 'penis') {
@@ -7109,16 +7090,22 @@ class PlayState extends MusicBeatState
 			iconP1.updateHitbox();
 			iconP2.updateHitbox();
 		}
-
-		if(curBeat % danceBeatSnap == 0)
+		// hi im taking icon code from gapple:e
+		if (curBeat % danceBeatSnap == 0)
 		{
-			if(iconP1.charPublic == 'bandu-origin')
+			if (iconP1.animatedIcon)
 			{
-				iconP1.animation.play(iconP1.charPublic, true);
+				if (iconP1.losing && !iconP1.singleIcon)
+					iconP1.animation.play('losing', true);
+				else
+					iconP1.animation.play('normal', true);
 			}
-			if(iconP2.charPublic == 'bandu-origin')
+			if (iconP2.animatedIcon)
 			{
-				iconP2.animation.play(iconP2.charPublic, true);
+				if (iconP2.losing && !iconP2.singleIcon)
+					iconP2.animation.play('losing', true);
+				else
+					iconP2.animation.play('normal', true);
 			}
 		}
 
