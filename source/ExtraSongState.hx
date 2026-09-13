@@ -34,7 +34,7 @@ class ExtraSongState extends MusicBeatState
 
     var songs:Array<SongMetadata> = [];
 
-    var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SUSSUS AMOGUS'));
+    var bg:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
     var curSelected:Int = 0;
 
     private var iconArray:Array<HealthIcon> = [];

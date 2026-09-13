@@ -7,7 +7,7 @@ cheating-not-cute:2:dab
 og-(original-gangster):6:prealpha
 algebra-(pre-release-teaser):1:og-dave
 dave-x-bambi-shipping-cute-(removed-version):2:dab
-jack-(1.4-version):1:disability
+jack-(1.4-version):6:jack
 3po-jam:1:disability
 algebra-(legacy-mix):1:og-dave
 ticking-(1.5-teaser):6:owie

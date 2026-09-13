@@ -58,6 +58,8 @@ class CreditPopup extends FlxSpriteGroup
                 funnyText.text = 'Song by Cval';
             case 'too-shiny':
                 funnyText.text = 'Song by Gorbini';
+            case 'jack-(1.4-version)':
+                funnyText.text = 'Song by MARKUSGAMING79';
         }
         add(funnyText);
     }

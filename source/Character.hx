@@ -61,6 +61,24 @@ class Character extends FlxSprite
 		var tex:FlxAtlasFrames;
 		switch (char)
 		{
+			case 'jack':
+				tex = Paths.getSparrowAtlas('characters/jack');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle', 24, false);
+				animation.addByPrefix('singUP', 'up', 24, false);
+				animation.addByPrefix('singRIGHT', 'right', 24, false);
+				animation.addByPrefix('singDOWN', 'down', 24, false);
+				animation.addByPrefix('singLEFT', 'left', 24, false);
+		
+				addOffset('idle');
+				addOffset("singUP",-4,29);
+				addOffset("singRIGHT",0,-12);
+				addOffset("singLEFT",5,-15);
+				addOffset("singDOWN",29,-19);
+		
+				playAnim('idle');
+
+				iconName = 'jack';
 			case 'chipper':
 				tex = Paths.getSparrowAtlas('characters/chipper');
 				frames = tex;

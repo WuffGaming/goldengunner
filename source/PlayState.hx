@@ -537,7 +537,7 @@ class PlayState extends MusicBeatState
 			gf.visible = false;
 		}
 
-		if(curStage.startsWith('algebra') || curStage == 'funnyAnimalGame')
+		if(curStage.startsWith('algebra') || curStage == 'funnyAnimalGame' || curStage == 'jack')
 		{
 			gf.visible = false;
 		}
@@ -2235,6 +2235,14 @@ class PlayState extends MusicBeatState
 				tunney.scrollFactor.set(0.75, 0.75);
 				if (SONG.song.toLowerCase() == 'ticking-(1.5-teaser)') { camHUD.angle -= 1; }
 				add(tunney);
+			case 'jack-(1.4-version)':
+				defaultCamZoom = 1;
+				curStage = 'jack';
+				var white:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.WHITE);
+				white.screenCenter();
+				white.scrollFactor.set();
+				sprites.add(white);
+				add(white);
 			default:
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
@@ -7346,6 +7354,9 @@ class PlayState extends MusicBeatState
 			case 'ticking-new':
 				dad.x -= 230;
 				dad.y -= 20;
+			case 'jack':
+				dad.x += 50;
+				dad.y += 200;
 			case 'cynda':
 				dad.y += 75;
 			case 'awesome-son':

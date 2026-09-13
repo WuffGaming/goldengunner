@@ -38,7 +38,7 @@ class OptionsMenu extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence("In the Options Menu", null);
 		#end
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('backgrounds/SUSSUS AMOGUS'));
+		var menuBG:FlxSprite = new FlxSprite().loadGraphic(MainMenuState.randomizeBG());
 
 		// wtf cynda
 		controlsStrings = CoolUtil.coolStringFile('KEYBINDS' + "\n" + (FlxG.save.data.newInput ? "Ghost Tapping" : "No Ghost Tapping") + "\n" + (FlxG.save.data.downscroll ? 'Downscroll' : 'Upscroll') + "\n" + (FlxG.save.data.eyesores ? 'Eyesores On' : 'Eyesores Off') + "\n" + (FlxG.save.data.donoteclick ? "Hitsounds On" : "Hitsounds Off") 
