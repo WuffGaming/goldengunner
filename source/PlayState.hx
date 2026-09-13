@@ -2235,7 +2235,7 @@ class PlayState extends MusicBeatState
 				tunney.scrollFactor.set(0.75, 0.75);
 				if (SONG.song.toLowerCase() == 'ticking-(1.5-teaser)') { camHUD.angle -= 1; }
 				add(tunney);
-			case 'jack-(1.4-version)':
+			case 'jack-(1.4-version)' | 'jack-(old-mix)':
 				defaultCamZoom = 1;
 				curStage = 'jack';
 				var white:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width * 5, FlxG.height * 5, FlxColor.WHITE);
