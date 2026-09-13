@@ -276,6 +276,7 @@ class PlayState extends MusicBeatState
 
 	private var generatedMusic:Bool = false;
 	private var shakeCam:Bool = false;
+	private var tickingEffect:Bool = false;
 	private var startingSong:Bool = false;
 
 	public var TwentySixKey:Bool = false;
@@ -1263,9 +1264,7 @@ class PlayState extends MusicBeatState
 
 			daStatic.animation.play('static');
 
-			//camGame.setFilters([new ShaderFilter(vcr)]);
-
-			//camHUD.setFilters([new ShaderFilter(vcr)]);
+			FlxG.game.setFilters([new ShaderFilter(vcr)]);
 		}
 		var blackFuck = new FlxSprite().makeGraphic(1280, 720, FlxColor.BLACK);
 		startCircle = new FlxSprite();
@@ -2233,7 +2232,7 @@ class PlayState extends MusicBeatState
 				tunney.x += 200;
 				tunney.y -= 250;
 				tunney.scrollFactor.set(0.75, 0.75);
-				if (SONG.song.toLowerCase() == 'ticking-(1.5-teaser)') { camHUD.angle -= 1; }
+				if (SONG.song.toLowerCase() == 'ticking-(1.5-teaser)') { camHUD.angle -= 0.7; }
 				add(tunney);
 			case 'jack-(1.4-version)' | 'jack-(old-mix)':
 				defaultCamZoom = 1;
@@ -3753,7 +3752,7 @@ class PlayState extends MusicBeatState
 
 		FlxG.watch.addQuick("WHAT", Conductor.songPosition);
 			
-		//FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); // this is very stupid but doesn't effect memory all that much so
+		FlxG.game.setFilters([new ShaderFilter(screenshader.shader)]); // this is very stupid but doesn't effect memory all that much so
 		if (shakeCam && eyesoreson)
 		{
 			// var shad = cast(FlxG.camera.screen.shader,Shaders.PulseShader);
@@ -3817,6 +3816,7 @@ class PlayState extends MusicBeatState
 				dad.x += Math.cos(floaty) * 1.3; // math B)
 		}
 
+		botplayTxt.visible = bottyPlay;
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
@@ -5833,8 +5833,12 @@ class PlayState extends MusicBeatState
 							snapCamFollowToPos(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
 							camMoveAllowed = true;
 						}
+					case 828:
+						tickingEffect = true;
+						shakeCam = true;
 					case 832:
-						// placeholder add glitch effect hear
+						tickingEffect = false;
+						shakeCam = false;
 					case 1152:
 						FlxG.camera.flash(FlxColor.WHITE, 1, null, true);
 						colorShader.contrast = 0;

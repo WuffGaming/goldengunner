@@ -19,7 +19,7 @@ class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['Resume', 'Toggle Practice Mode'/*, 'Toggle Botplay'*/, 'Restart Song', 'Exit to menu'];
+	var menuItems:Array<String> = ['Resume', 'Toggle Practice Mode', #if debug 'Toggle Botplay', #end 'Restart Song', 'Exit to menu'];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -181,7 +181,7 @@ class PauseSubState extends MusicBeatSubstate
 						bottyText.visible = PlayState.bottyPlay;
 					}
 				case "Restart Song":
-					FlxG.resetState();
+					FlxG.switchState(()->new PlayState()); // dumb bug i dont care to fix
 				case "Exit to menu":
 					if (PlayState.SONG.song.toLowerCase() == 'penis')
 						FlxG.switchState(()->new GetBackState());
