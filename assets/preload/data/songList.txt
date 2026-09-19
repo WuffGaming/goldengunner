@@ -12,3 +12,8 @@ jack-(1.4-version):6:jack
 algebra-(legacy-mix):1:og-dave
 ticking-(1.5-teaser):6:owie
 jack-(old-mix):6:jack
+algebra-(early-wip):1:og-dave
+algebra-(alien-hall-monitor-section):3:hall-monitor
+mine:3:og-dave
+the-big-dingle:3:dingle
+the-big-dingle-(ost-mix):3:dingle

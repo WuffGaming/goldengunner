@@ -45,11 +45,11 @@ class ExtraSongState extends MusicBeatState
     var songColors:Array<FlxColor> = [
     	0xFFca1f6f, // GF 0
 		0xFF4965FF, // DAVE 1
-		0xFF00B515, // MISTER 2 BAMBI r slur (i cant reclaim) //MISTER BAMBI RETARD (i can though)
+		0xFF00B515, // MISTER 2 BAMBI r slur (i cant reclaim) //MISTER BAMBI RETARD (i can though) // (i can too but different times, bubby. different time.s)
 		0xFF00FFFF, //SPLIT THE THONNNNN 3
 		0xFF000000, // sart. 4
 		FlxColor.YELLOW, //GARRETT???? 5
-		FlxColor.WHITE, //leaked recovered project full week you gett it
+		FlxColor.WHITE, //leaked recovered project full week 6
 		FlxColor.GRAY, //HOLY SHIT ITS PLAYROBOT!!! 7
 		FlxColor.LIME, //ALIEN?!?!?!?! 8
 		FlxColor.BLUE //DIAMOND MAN!??!?!9?!?!?!?
