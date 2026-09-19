@@ -195,7 +195,7 @@ class ExtraSongState extends MusicBeatState
                 case 'unknown':
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					FlxG.camera.shake(0.05, Conductor.stepCrochet / 1000, null, true);
-				case 'og-(original-draft)':
+				case 'og-(original-gangster)':
 					FlxTween.cancelTweensOf(swagText);
                     FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 					swagText.text = 'the bpm is too fucked\niunn wanna chart thiiiis\n im lauzy\n       Hi';
