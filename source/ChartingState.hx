@@ -1216,7 +1216,7 @@ class ChartingState extends MusicBeatState
 		{
 			CoolUtil.cheatersNeverProsper();
 		}
-		PlayState.SONG = Song.loadFromJson(song.toLowerCase(), song.toLowerCase());
+		PlayState.SONG = Song.loadFromJson(song.toLowerCase());
 		FlxG.resetState();
 	}
 

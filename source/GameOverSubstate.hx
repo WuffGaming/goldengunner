@@ -239,7 +239,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 				trace(poop);
 
-				PlayState.SONG = Song.loadFromJson(poop, 'recovered-project');
+				PlayState.SONG = Song.loadFromJson('recovered-project');
 				PlayState.isStoryMode = false;
 				PlayState.storyDifficulty = 1;
 

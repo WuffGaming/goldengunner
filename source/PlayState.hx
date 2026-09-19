@@ -1674,7 +1674,7 @@ class PlayState extends MusicBeatState
 				swagger = new Character(-300, 100 - 900 - 400, 'bambi-piss-3d');
 				charactersInThisSongWow.push(swagger.curCharacter);
 				if (SONG.song.toLowerCase() == 'applecore')
-					altSong = Song.loadFromJson('alt-notes', 'applecore');
+					altSong = Song.loadFromJson('applecore', 'alt-notes');
 
 				scaryBG = new FlxSprite(-350, -375).loadGraphic(Paths.image('applecore/yeah'));
 				scaryBG.scale.set(2, 2);
@@ -3865,7 +3865,7 @@ class PlayState extends MusicBeatState
 		
 						trace(poop);
 		
-						PlayState.SONG = Song.loadFromJson(poop, 'cell');
+						PlayState.SONG = Song.loadFromJson('cell');
 						PlayState.isStoryMode = false;
 						PlayState.storyDifficulty = 1;
 		

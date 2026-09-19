@@ -105,9 +105,17 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
 	}
 
-	inline static public function chart(song:String, chartfile:String)
+	inline static public function chart(song:String, ?folder:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/${chartfile.toLowerCase()}.json';
+		var output:String;
+		if (folder != null) { // we're just making naming conventions that make no sense now
+			return 'songs:assets/songs/${song.toLowerCase()}/${folder.toLowerCase()}.json';
+		}
+		else
+		{
+			return 'songs:assets/songs/${song.toLowerCase()}/chart.json';
+		}
+		
 	}
 
 

@@ -248,7 +248,7 @@ class MainMenuState extends MusicBeatState
 
 									SaveFileState.saveFile.data.shipUnlocked = true;
 						
-									PlayState.SONG = Song.loadFromJson(poop, 'dave-x-bambi-shipping-cute');
+									PlayState.SONG = Song.loadFromJson('dave-x-bambi-shipping-cute');
 									PlayState.isStoryMode = false;
 									PlayState.storyDifficulty = 1;
 									PlayState.xtraSong = false;

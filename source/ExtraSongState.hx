@@ -210,7 +210,7 @@ class ExtraSongState extends MusicBeatState
 
                     trace(poop);
 
-                    PlayState.SONG = Song.loadFromJson(poop, pisswad);
+                    PlayState.SONG = Song.loadFromJson(pisswad);
 
                     PlayState.isStoryMode = false;
 
