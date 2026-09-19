@@ -107,7 +107,6 @@ class Paths
 
 	inline static public function chart(song:String, ?folder:String)
 	{
-		var output:String;
 		if (folder != null) { // we're just making naming conventions that make no sense now
 			return 'songs:assets/songs/${song.toLowerCase()}/${folder.toLowerCase()}.json';
 		}

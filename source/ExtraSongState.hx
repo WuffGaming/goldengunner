@@ -206,10 +206,6 @@ class ExtraSongState extends MusicBeatState
                 default:   
 					var pisswad = songs[curSelected].songName.toLowerCase();
 
-                    var poop:String = Highscore.formatSong(pisswad, 1);
-
-                    trace(poop);
-
                     PlayState.SONG = Song.loadFromJson(pisswad);
 
                     PlayState.isStoryMode = false;
