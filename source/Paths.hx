@@ -95,6 +95,11 @@ class Paths
 		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
 	}
 
+	inline static public function video(key:String, ?library:String)
+	{
+		return 'videos:assets/videos/${key.toLowerCase()}.mp4';
+	}
+
 	inline static public function tta(which:String)
 	{
 		return 'songs:assets/songs/tta-insts/$which.$SOUND_EXT';

@@ -54,6 +54,7 @@ import lime.app.Application;
 import openfl.display.Application as OpenFLApplication;
 import openfl.display.Stage;
 #end
+import hxvlc.flixel.FlxVideoSprite;
 
 #if windows
 import sys.io.File;
@@ -370,6 +371,7 @@ class PlayState extends MusicBeatState
 	var kadeEngineWatermark:FlxText;
 
 	var thunderBlack:FlxSprite;
+	var videoSprite:FlxVideoSprite;
 
 	var startCircle:FlxSprite;
 	var startText:FlxSprite;
@@ -950,12 +952,17 @@ class PlayState extends MusicBeatState
 		}
 
 		Conductor.songPosition = -5000;
-
 		thunderBlack = new FlxSprite().makeGraphic(FlxG.width * 4, FlxG.height * 4, FlxColor.BLACK);
 		thunderBlack.screenCenter();
 		thunderBlack.alpha = 0;
 		thunderBlack.scrollFactor.set();
 		add(thunderBlack);
+		if (SONG.song.toLowerCase() == 'recovered-project-(short-version)'){
+			thunderBlack.alpha = 1;
+			videoSprite = new FlxVideoSprite(0, 0);
+			add(videoSprite);
+			videoSprite.load('assets/videos/recovered-project-but-short.mp4');
+		}
 		viggy = new FlxSprite().loadGraphic(Paths.image('vig_red'));
 		viggy.screenCenter();
 		viggy.alpha = 0.475;
@@ -1213,8 +1220,9 @@ class PlayState extends MusicBeatState
 			dad.alpha = 0;
 			iconP2.alpha = 0;
 		}
-
+ 
 		thunderBlack.cameras = [camHUD];
+		videoSprite.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -2614,6 +2622,9 @@ class PlayState extends MusicBeatState
 		songLength = FlxG.sound.music.length;
 
 		FlxTween.tween(timeTxt, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
+		if (SONG.song.toLowerCase() == 'recovered-project-(short-version)'){ 
+			videoSprite.play();
+		}
 
 		#if desktop
 		DiscordClient.changePresence(SONG.song,
@@ -3086,6 +3097,9 @@ class PlayState extends MusicBeatState
 				FlxG.sound.music.pause();
 				vocals.pause();
 			}
+			if (videoSprite != null) {
+				videoSprite.pause();
+			}
 
 			#if desktop
 			DiscordClient.changePresence("PAUSED on "
@@ -3111,6 +3125,9 @@ class PlayState extends MusicBeatState
 			if (FlxG.sound.music != null && !startingSong)
 			{
 				resyncVocals();
+			}
+			if (videoSprite != null) {
+				videoSprite.resume();
 			}
 
 			if (!startTimer.finished)
@@ -3500,6 +3517,12 @@ class PlayState extends MusicBeatState
 			stupidy += elapsed * 2;
 			boyfriend.x += stupidx;
 			//boyfriend.y += stupidy;
+		}
+
+		if (videoSprite != null) { // ACTUAL BULLSHIT BTW
+			videoSprite.setGraphicSize(1280, 720);
+			videoSprite.updateHitbox();
+			videoSprite.screenCenter();
 		}
 
 		//welcome to 3d sinning avenue
@@ -6777,6 +6800,13 @@ class PlayState extends MusicBeatState
 					case 484:
 						FlxTween.tween(thunderBlack, {alpha: 0}, 1);
 						iconP2.changeIcon(dad.iconName);
+				}
+			case 'recovered-project-(short-version)':
+				switch (curBeat) {
+					case 100:
+						iconP2.changeIcon('gunk');
+					case 227:
+						iconP2.changeIcon('gross');
 				}
 			case 'wireframe':
 				FlxG.camera.shake(0.005, Conductor.crochet / 1000);

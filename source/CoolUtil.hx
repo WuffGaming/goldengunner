@@ -53,7 +53,7 @@ class CoolUtil
 				diff = 'extreme';
 			case 'disruption' | 'sugar-rush' | 'ferocious' | 'ferocious-(short-mix)' | 'gift-card' | 'og-(original-draft)' | 'ripple' | 'deformation' | 'algebra-(pre-release-teaser)' | 'algebra-(legacy-mix)' | 'slices' | 'ready-loud':
 				diff = 'hard';
-			case 'mine' | 'bookworm' | 'disability' | '3po-jam' | 'dale' | 'recovered-project' | 'recovered-project-(ingame-version)' | 'keyboard' | 'cell' | 'wireframe' | 'ticking' | 'ticking-(1.5-teaser)' | 'unhinged' | 'cuberoot-(alpha-mix)' | 'cuberoot' | 'thunderstorm' | 'too-shiny' | 'apprentice-(beta-mix)' | 'apprentice' | 'tantalum':
+			case 'mine' | 'bookworm' | 'disability' | '3po-jam' | 'dale' | 'recovered-project' | 'recovered-project-(short-version)' | 'recovered-project-(ingame-version)' | 'keyboard' | 'cell' | 'wireframe' | 'ticking' | 'ticking-(1.5-teaser)' | 'unhinged' | 'cuberoot-(alpha-mix)' | 'cuberoot' | 'thunderstorm' | 'too-shiny' | 'apprentice-(beta-mix)' | 'apprentice' | 'tantalum':
 				diff = 'normal';
 			case 'origin' | 'strawberry' | 'the-big-dingle' | 'corrupted-file' | 'sick-tricks' | 'dave-x-bambi-shipping-cute' | 'dave-x-bambi-shipping-cute-(removed-version)' | 'wheels' | 'alternate' | 'cycles' | 'resumed':
 				diff = 'easy';
