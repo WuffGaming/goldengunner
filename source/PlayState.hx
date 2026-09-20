@@ -526,6 +526,7 @@ class PlayState extends MusicBeatState
 		}
 		if (curStage == 'sugar') gfVersion = 'gf-only';
 		if (curStage == 'wheels') gfVersion = 'gf-wheels';
+		if (curStage == 'dinner-mono') gfVersion = 'dinner-gf-mono';
 		gf = new Character(400 + charoffsetx, 130 + charoffsety, gfVersion);
 		gf.scrollFactor.set(0.95, 1);
 
@@ -2242,6 +2243,13 @@ class PlayState extends MusicBeatState
 				white.scrollFactor.set();
 				sprites.add(white);
 				add(white);
+			case 'mine':
+				defaultCamZoom = 0.9;
+				curStage = 'dinner-mono';
+				var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('mine/mine_bg_mono'));
+				bg.screenCenter();
+				bg.antialiasing = false;
+				add(bg);
 			default:
 				defaultCamZoom = 0.9;
 				curStage = 'stage';

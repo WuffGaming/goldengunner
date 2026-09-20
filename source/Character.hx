@@ -61,6 +61,32 @@ class Character extends FlxSprite
 		var tex:FlxAtlasFrames;
 		switch (char)
 		{
+			case 'dinner-mono':
+				tex = Paths.getSparrowAtlas('characters/evilDinner/dinnerbambi');
+				frames = tex;
+				animation.addByPrefix('idle', 'idle', 24, false);
+				animation.addByPrefix('singUP', 'up', 24, false);
+				animation.addByPrefix('singRIGHT', 'right', 24, false);
+				animation.addByPrefix('singDOWN', 'down', 24, false);
+				animation.addByPrefix('singLEFT', 'left', 24, false);
+				animation.addByPrefix('singUP-alt', 'JUNKup', 24, false);
+				animation.addByPrefix('singRIGHT-alt', 'JUNKright', 24, false);
+				animation.addByPrefix('singDOWN-alt', 'JUNKdown', 24, false);
+				animation.addByPrefix('singLEFT-alt', 'JUNKleft', 24, false);
+		
+				addOffset('idle');
+				addOffset("singUP", 6, -30);
+				addOffset("singRIGHT", 90, 20);
+				addOffset("singLEFT", -60, 10);
+				addOffset("singDOWN", 0, 40);
+				addOffset("singUP-alt", 110, 0);
+				addOffset("singRIGHT-alt", 160, 20);
+				addOffset("singLEFT-alt", 50, 30);
+				addOffset("singDOWN-alt", 120, 50);
+		
+				playAnim('idle');
+
+				iconName = 'dinner-mono';
 			case 'jack':
 				tex = Paths.getSparrowAtlas('characters/jack');
 				frames = tex;
@@ -698,6 +724,25 @@ class Character extends FlxSprite
 				addOffset('hairFall', 0, -9);
 
 				addOffset('scared', -2, -17);
+
+				iconName = 'gf';
+
+				playAnim('danceRight');
+			case 'dinner-gf-mono':
+				// GIRLFRIEND CODE
+				tex = Paths.getSparrowAtlas('characters/evilDinner/dinnergirlfriend');
+				frames = tex;
+				animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+				animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+				animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+				animation.addByIndices('hairBlow', "GF Dancing Beat Hair blowing", [0, 1, 2, 3], "", 24);
+				animation.addByIndices('hairFall', "GF Dancing Beat Hair Landing", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], "", 24, false);
+
+				addOffset('cheer');
+				addOffset('danceLeft', 0, -9);
+				addOffset('danceRight', 0, -9);
+				addOffset('hairBlow', 45, -8);
+				addOffset('hairFall', 0, -9);
 
 				iconName = 'gf';
 
@@ -3027,6 +3072,36 @@ class Character extends FlxSprite
 				flipX = true;
 
 				iconName = 'bf';
+			case 'dinner-bf-mono':
+				var tex = Paths.getSparrowAtlas('characters/evilDinner/dinnerboyfriend');
+				frames = tex;
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+
+				addOffset('idle', -5);
+				addOffset("singUP", -29, 27);
+				addOffset("singRIGHT", -38, -7);
+				addOffset("singLEFT", 12, -6);
+				addOffset("singDOWN", -10, -50);
+				addOffset("singUPmiss", -29, 27);
+				addOffset("singRIGHTmiss", -30, 21);
+				addOffset("singLEFTmiss", 12, 24);
+				addOffset("singDOWNmiss", -11, -19);
+
+				playAnim('idle');
+
+				nativelyPlayable = true;
+
+				flipX = true;
+
+				iconName = 'bf-mono';
 
 			case 'cynda':
 				var tex = Paths.getSparrowAtlas('characters/cyna');
@@ -3191,7 +3266,7 @@ class Character extends FlxSprite
 		{
 			switch (curCharacter)
 			{
-				case 'gf' | 'gf-christmas' | 'gf-pixel' | 'gf-pixel-white' | 'bandu-candy' | 'bambi-piss-3d' | 'gf-only' | 'dave-wheels' | 'david' | 'future-dave' | 'garrett-animal' | 'playtime-2' | 'garrett-piss' | 'playrobot' | 'playrobot-crazy' | 'bamb-root' | 'wtf-lmao':
+				case 'gf' | 'dinner-gf-mono' | 'gf-christmas' | 'gf-pixel' | 'gf-pixel-white' | 'bandu-candy' | 'bambi-piss-3d' | 'gf-only' | 'dave-wheels' | 'david' | 'future-dave' | 'garrett-animal' | 'playtime-2' | 'garrett-piss' | 'playrobot' | 'playrobot-crazy' | 'bamb-root' | 'wtf-lmao':
 					if (!animation.curAnim.name.startsWith('hair'))
 					{
 						danced = !danced;
