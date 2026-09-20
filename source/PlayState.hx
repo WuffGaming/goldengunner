@@ -1222,7 +1222,7 @@ class PlayState extends MusicBeatState
 		}
  
 		thunderBlack.cameras = [camHUD];
-		videoSprite.cameras = [camHUD];
+		if (videoSprite != null) videoSprite.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
 		notes.cameras = [camHUD];
